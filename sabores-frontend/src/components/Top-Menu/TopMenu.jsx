@@ -14,7 +14,7 @@ const TopMenu = () => {
           <h1 className="topbat-text">Sabores</h1>
         </div>
         <div>
-          <input type="text" className="input--topbar" placeholder="Procure por sua receita aqui..."/>
+          <input type="text" className="input--topbar" placeholder="Procure sua receita aqui..."/>
         </div>
         <div>
           <i class="fa-solid fa-user"></i>
