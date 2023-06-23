@@ -1,0 +1,41 @@
+.LeftMenu-Component {
+    height: 100vh;
+    width:  440px;
+    background-color: var(--website-color-4);
+}
+
+.btn-effect {
+    position: fixed;
+    font-size: 2rem;
+    z-index: 99999999;
+    color: whitesmoke;
+    top: 30px;
+    left: 20px;
+}
+
+.leftmenu-itens {
+    display: grid;
+    gap: 36px;
+    position: relative;
+    top: 100px;
+}
+
+.leftmenu--iten {
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
+
+.leftmenu--iten i {
+    margin-right: 30px;
+    font-size: 2rem;
+    margin-left: 20px;
+    color:#f5f5f5;
+}
+
+.leftmenu--iten h1 {
+    font-family: var(--font-webiste);
+    font-size: 1.3rem;
+    color:#f5f5f5;
+    font-weight: 500;
+}
