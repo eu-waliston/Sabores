@@ -12,8 +12,6 @@
 :root {
   --font-webiste: "Poppins", sans-serif;
   --font-beauty:  'Caprasimo', cursive;
-  --website-color-1: #E84A5F;
-  --website-color-2: #FF847C;
-  --website-color-3: #99B898;
-  --website-color-4: #B74242;
+  --website-color-4: #557571;
+  --website-theme: #f5f5f5;
 }

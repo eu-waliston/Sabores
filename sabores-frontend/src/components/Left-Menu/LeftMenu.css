@@ -1,7 +1,7 @@
 .LeftMenu-Component {
     height: 100vh;
     width:  350px;
-    background-color: var(--website-color-4);
+    background-color: whitesmoke;
     z-index: 20;
     box-shadow: 5px 5px 35px rgba(0, 0, 0, 0.288);
     transition: .8s;
@@ -9,14 +9,15 @@
 }
 .fa-solid {
     cursor: pointer;
+    color: var(--website-color-4);
 }
 .btn-effect {
     position: fixed;
     font-size: 2rem;
     z-index: 99999999;
-    color: whitesmoke;
     top: 30px;
     left: 20px;
+    color: var(--website-color-4);
 }
 
 .leftmenu-itens {
@@ -35,26 +36,24 @@
 .leftmenu--iten i {
     margin-right: 30px;
     font-size: 2rem;
-    margin-left: 20px;
-    color:#f5f5f5;
-    
+    margin-left: 20px;   
 }
 
 .leftmenu--iten-h1 {
     font-family: var(--font-webiste);
     font-size: 1.3rem;
-    color:#f5f5f5;
-    font-weight: 400;
+    color: var(--website-color-4);
+    font-weight: 300;
     transition: .5s;
+    cursor: pointer;
 }
-
 
 /* Close Bar Effect and Styles */
 
 .LeftMenu-Component-clicked {
     height: 100vh;
     width:  70px;
-    background-color: var(--website-color-4);
+    background-color: whitesmoke;
     z-index: 20;
     box-shadow: 5px 5px 35px rgba(0, 0, 0, 0.288);
     transition: .5s;
@@ -62,9 +61,9 @@
 
 .h1-effect {
     font-family: var(--font-webiste);
-    font-size: 1.3rem;
+    font-size: 1rem;
     color:#f5f5f5;
-    font-weight: 400;
+    font-weight: 300;
     transition: .8s;
     position: relative;
     display: none;
