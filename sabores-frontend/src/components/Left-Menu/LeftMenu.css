@@ -22,6 +22,11 @@
     color: var(--website-color-4);
 }
 
+.btn-effect:hover {
+    transition: .5s;
+    opacity: .8;
+}
+
 .leftmenu-itens {
     display: grid;
     gap: 36px;
@@ -41,6 +46,11 @@
     margin-left: 20px;   
 }
 
+.leftmenu--iten i:hover {
+    transition: .5s;
+    opacity: .8;
+}
+
 .leftmenu--iten-h1 {
     font-family: var(--font-webiste);
     font-size: 1.3rem;
@@ -48,6 +58,11 @@
     font-weight: 300;
     transition: .5s;
     cursor: pointer;
+}
+
+.leftmenu--iten-h1:hover {
+    transition: .5s;
+    opacity: .8;
 }
 
 /* Close Bar Effect and Styles */
