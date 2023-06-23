@@ -19,9 +19,7 @@
   - MongoDB
   - Mongoose
     
-### Desig:
-
-##### Home: 
+### Design:
 
 ![Screenshot from 2023-06-23 19-56-12](https://github.com/wal-wizard/Sabores/assets/82295321/35957213-7b98-468c-8a84-6ba274367237)
 
