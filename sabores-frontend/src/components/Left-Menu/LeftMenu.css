@@ -3,9 +3,11 @@
     width:  350px;
     background-color: whitesmoke;
     z-index: 20;
-    box-shadow: 5px 5px 35px rgba(0, 0, 0, 0.288);
+    box-shadow: 5px 5px 50px rgba(0, 0, 0, 0.11);
     transition: .8s;
     overflow: hidden;
+    z-index: 10;
+    position: fixed;
 }
 .fa-solid {
     cursor: pointer;
@@ -15,7 +17,7 @@
     position: fixed;
     font-size: 2rem;
     z-index: 99999999;
-    top: 30px;
+    top: 50px;
     left: 20px;
     color: var(--website-color-4);
 }
@@ -24,7 +26,7 @@
     display: grid;
     gap: 36px;
     position: relative;
-    top: 100px;
+    top: 130px;
 }
 
 .leftmenu--iten {
@@ -55,8 +57,10 @@
     width:  70px;
     background-color: whitesmoke;
     z-index: 20;
-    box-shadow: 5px 5px 35px rgba(0, 0, 0, 0.288);
+    box-shadow: 5px 5px 50px rgba(0, 0, 0, 0.11);
     transition: .5s;
+    z-index: 10;
+    position: fixed;
 }
 
 .h1-effect {

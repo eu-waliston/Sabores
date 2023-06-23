@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./LeftMenu.css";
 
 const LeftMenu = () => {
-  const [nav, setNav] = useState(true);
+  const [nav, setNav] = useState(false);
   const handleClick = () => {
     setNav(!nav);
   };
