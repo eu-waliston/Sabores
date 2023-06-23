@@ -9,7 +9,6 @@
   - Styled Components
   - React icons
   - Font Aweasome
-  - Sass
   - Css
 
 #### No Back:
