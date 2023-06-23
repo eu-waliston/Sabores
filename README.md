@@ -9,10 +9,14 @@
   - Styled Components
   - React icons
   - Font Aweasome
+  - Sass
+  - Css
 
 #### No Back:
   - NodeJs
   - Express
   - Helmet
   - Passport
+  - MongoDB
+  - Mongoose
     
