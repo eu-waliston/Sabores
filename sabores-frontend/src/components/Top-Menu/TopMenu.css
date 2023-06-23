@@ -1,10 +1,9 @@
 .top_menu {
   position: fixed;
   width: 100%;
-  box-shadow: 5px 5px 50px rgba(0, 0, 0, 0.034);
   z-index: 0;
-  height: 120px;
-  background-color: white;
+  height: 100px;
+  background-color: whitesmoke;
 }
 
 .top_menu__component {
@@ -15,16 +14,6 @@
   margin-top: 10px;
 }
 
-.menu--itens {
-  display: flex;
-  align-items: center;
-  align-content: center;
-}
-
-.menu--itens img {
-  margin-right: 30px;
-}
-
 .menu--itens h1 {
   font-family: var(--font-beauty);
   letter-spacing: 3px;
@@ -32,8 +21,14 @@
   color: var(--website-color-4);
 }
 
+.topbar--text-2 {
+  font-family: var(--font-webiste);
+  letter-spacing: 2px;
+  color: var(--website-color-4);
+}
+
 .logo--topbar {
-  width: 100px;
+  width: 80px;
 }
 
 .input--topbar {
@@ -46,14 +41,14 @@
 }
 
 ::placeholder {
-  color: #686666;  
+  color: #686666;
 }
 
 .fa-user {
-    font-size: 2rem;
+  font-size: 2rem;
 }
 
 .fa-user:hover {
-    transition: .5s;
-    opacity: .8;
+  transition: 0.5s;
+  opacity: 0.8;
 }

@@ -11,7 +11,6 @@ const TopMenu = () => {
             alt="logo"
             className="logo--topbar"
           />
-          <h1 className="topbat-text">Sabores</h1>
         </div>
         <div>
           <input type="text" className="input--topbar" placeholder="Procure sua receita aqui..."/>
