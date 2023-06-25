@@ -1,11 +1,10 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { FaLock, FaUserAlt } from "react-icons/fa"
 
-import "./Login.css";
-import { Link } from "react-router-dom";
+import "../Login/Login.css";
+// import { Link } from "react-router-dom";
 
-const Login = () => {
+const Register = () => {
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => console.log(data);
 
@@ -16,19 +15,15 @@ const Login = () => {
       </div>
       <div className="b-side">
         <form onSubmit={handleSubmit(onSubmit)}>
-          <FaUserAlt className="icon-style"/>
           <input {...register("usuario")} placeholder="Usuario" />
-          <FaLock className="icon-style"/>
+          <input {...register("email")} placeholder="Email" type="email"/>
           <input {...register("usuario")} placeholder="Senha" type="password"/>
-          <button type="submit">Entrar</button>
+          <input {...register("dat-nasc")} type="date"/>
+          <button type="submit">Cadastrar</button>
         </form>
-        <h4 className="new__account">
-          Ainda nao é usuario ? &nbsp;
-          <span><Link to={"/register"}>crie sua conta</Link></span>
-        </h4>
       </div>
     </div>
   );
 };
 
-export default Login;
+export default Register;
