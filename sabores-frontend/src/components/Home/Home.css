@@ -21,11 +21,14 @@
     font-size: 5rem;
     position: relative;
     top: 170px;
+    border: none;
 }
 
 .st-2 {
     font-size: 2rem !important;
     font-family: var(--font-webiste) !important;
+    border: none;
+    font-weight: 500;
 }
 
 .home--message img{

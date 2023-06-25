@@ -1,5 +1,6 @@
 import React from "react";
 import "./TopMenu.css";
+import { Link } from "react-router-dom";
 
 const TopMenu = () => {
   return (
@@ -13,10 +14,16 @@ const TopMenu = () => {
           />
         </div>
         <div>
-          <input type="text" className="input--topbar" placeholder="Procure sua receita aqui..."/>
+          <input
+            type="text"
+            className="input--topbar"
+            placeholder="Procure sua receita aqui..."
+          />
         </div>
         <div>
-          <i class="fa-solid fa-user"></i>
+          <Link to={"/login"}>
+            <i className="fa-solid fa-user"></i>
+          </Link>
         </div>
       </div>
     </div>
