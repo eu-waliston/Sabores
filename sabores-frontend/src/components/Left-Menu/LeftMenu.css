@@ -8,6 +8,7 @@
     overflow: hidden;
     z-index: 10;
     position: fixed;
+
 }
 .fa-solid {
     cursor: pointer;
@@ -29,7 +30,7 @@
 
 .leftmenu-itens {
     display: grid;
-    gap: 36px;
+    gap: 30px;
     position: relative;
     top: 130px;
 }
@@ -44,6 +45,7 @@
     margin-right: 30px;
     font-size: 2rem;
     margin-left: 20px;   
+    
 }
 
 .leftmenu--iten i:hover {
@@ -58,6 +60,7 @@
     font-weight: 300;
     transition: .5s;
     cursor: pointer;
+    border: none;
 }
 
 .leftmenu--iten-h1:hover {
@@ -86,4 +89,5 @@
     transition: .8s;
     position: relative;
     display: none;
+    border: none;
 }

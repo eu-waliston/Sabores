@@ -7,11 +7,13 @@ const TopMenu = () => {
     <div className="top_menu">
       <div className="top_menu__component">
         <div className="menu--itens">
-          <img
-            src={require("../images/Sabores-Logo.png")}
-            alt="logo"
-            className="logo--topbar"
-          />
+          <Link to={"/"}>
+            <img
+              src={require("../images/Sabores-Logo.png")}
+              alt="logo"
+              className="logo--topbar"
+            />
+          </Link>
         </div>
         <div>
           <input
