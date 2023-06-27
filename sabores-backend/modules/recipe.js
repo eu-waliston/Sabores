@@ -4,7 +4,7 @@ const RecetasSchema = mongoose.Schema({
     name: {type: String, required: true},
     imageURL: {type: String, required: true},
     recipe: {
-        type: [ReceitasSchema],
+        type: [String],
         default: undefined
     },
     comment: {type: String},

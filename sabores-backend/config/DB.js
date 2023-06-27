@@ -1,11 +1,12 @@
 const mongoose = require("mongoose");
-
 require("dotenv").config();
 
-mongoose.Promise = globaol.Promise;
+mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true });
 
-mongoose.set("strictQuery", false);
+const db = mongoose.connection;
 
-mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true }, () => {
-  console.log("Connected to MongoDB");
+db.on("error", console.error.bind(console, "MongoDB connection error:"));
+
+db.once("open", () => {
+  console.log("Successfully Connected!!!");
 });
