@@ -1,13 +1,11 @@
 import React, { useState } from "react";
-import "./LeftMenu.css";
+import "./LeftMenu.scss";
 
 const LeftMenu = () => {
   const [nav, setNav] = useState(false);
   const handleClick = () => {
     setNav(!nav);
   };
-
-  // ={nav ? "" : ""}
 
   return (
     <div className={nav ? "LeftMenu-Component" : "LeftMenu-Component-clicked"}>
