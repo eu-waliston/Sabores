@@ -1,5 +1,5 @@
 import React from "react";
-import "./TopMenu.css";
+import "./TopMenu.scss";
 import { Link } from "react-router-dom";
 
 const TopMenu = () => {
@@ -9,7 +9,7 @@ const TopMenu = () => {
         <div className="menu--itens">
           <Link to={"/"}>
             <img
-              src={require("../images/Sabores-Logo.png")}
+              src="./images/Sabores-Logo.png"
               alt="logo"
               className="logo--topbar"
             />

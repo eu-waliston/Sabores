@@ -1,7 +1,5 @@
 import React from "react";
-import "./App.css";
-
-import { BrowserRouter, Routes, Route, Router } from "react-router-dom";
+import "./utilities/master.scss";
 
 import LeftMenu from "./components/Left-Menu/LeftMenu";
 import TopMenu from "./components/Top-Menu/TopMenu";

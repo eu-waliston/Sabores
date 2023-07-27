@@ -1,5 +1,5 @@
 import React from "react";
-import "./Home.css";
+import "./Home.scss";
 
 const Home = () => {
   return (
@@ -10,7 +10,7 @@ const Home = () => {
           <h1 className="st-2">Receitas Online.</h1>
         </div>
         <div>
-          <img src={require("../images/Sabores-Logo.png")} alt="website logo" />
+          <img src="./images/Sabores-Logo.png" alt="website logo" />
         </div>
       </div>
       <button className="discover">descobrir</button>

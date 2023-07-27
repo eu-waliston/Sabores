@@ -1,7 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 
-import "../Login/Login.css";
+import "./User.scss";
 // import { Link } from "react-router-dom";
 
 const Register = () => {
@@ -11,9 +11,10 @@ const Register = () => {
   return (
     <div className="form-container">
       <div className="a-side">
-        <img src={require("../images/Sabores-Logo.png")} alt="logo" className="logo"/>
+        <img src="./images/Sabores-Logo.png" alt="logo" className="logo"/>
       </div>
       <div className="b-side">
+      <h3 className="greetings">Registre-se aqui!</h3>
         <form onSubmit={handleSubmit(onSubmit)}>
           <input {...register("usuario")} placeholder="Usuario" />
           <input {...register("email")} placeholder="Email" type="email"/>
