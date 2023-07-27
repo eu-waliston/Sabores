@@ -1,11 +1,11 @@
 @import "../utilities/variables.scss";
 
 .home__component {
-  width: 72%;
-  height: 100vh;
+  width: $default-width;
+  height: $default-height;
+  margin: $div-center;
   background-color: $text-color-1;
-  margin: 0 auto;
-
+  
   .home--message {
     display: flex;
     align-items: center;
@@ -45,10 +45,9 @@
     top: 30%;
     text-align: center;
     left: 40%;
-    width: 250px;
-    height: 60px;
-    border: none;
+    padding: 15px;
     font-size: 1.2rem;
+    text-decoration: none;
     text-transform: uppercase;
     font-family: $font-webiste;
     border-radius: 20px;
