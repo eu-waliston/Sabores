@@ -58,10 +58,27 @@ async function deleteAuser(req, res) {
   }
 }
 
+async function loginWithUser(req, res) {
+  let username = req.body.username;
+
+  const UserP = User.findOne({
+    username: req.body.username,
+  });
+
+  try {
+    if(username === UserP) {
+      res.redirect("/")
+    }
+  } catch (error) {
+    res.json({ message: error });
+  }
+}
+
 module.exports = {
   getAllUsers,
   getAnUser,
   createAuser,
   updatedUser,
-  deleteAuser
+  deleteAuser,
+  loginWithUser,
 };
