@@ -4,7 +4,7 @@
   "description": "",
   "main": "Api.js",
   "scripts": {
-    "start": "nodemon Api.js"
+    "start": "nodemon src/Api.js"
   },
   "keywords": [],
   "author": "",
@@ -20,4 +20,5 @@
   "devDependencies": {
     "nodemon": "^2.0.22"
   }
+
 }

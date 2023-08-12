@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const helmte = require("helmet");
+const helmet = require("helmet");
 
 require("dotenv").config();
 
@@ -10,19 +10,19 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
-app.use(helmte());
+app.use(helmet());
 
 //routes
-const rootRouter = require("./routes/root.router");
-const userRouter = require("./routes/user.router");
-const recipeRouter = require("./routes/recipe.router");
+const rootView = require("./View/root.view");
+const userView = require("./View/user.view");
+const recipeView = require("./View/recipe.view");
 
-app.use("/", rootRouter);
-app.use("/", userRouter);
-app.use("/", recipeRouter);
+app.use("/", rootView);
+app.use("/", userView);
+app.use("/", recipeView);
 
 //DB Connection
-require("./config/DB");
+require("../config/DB");
 
 //Server
 app.listen(process.env.PORT, () => {
