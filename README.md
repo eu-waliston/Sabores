@@ -29,6 +29,6 @@
 
 ### LINKS
 
-front (apenas o front da aplicação):
+front
 
 https://sabores-ten.vercel.app/
