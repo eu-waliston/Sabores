@@ -24,6 +24,7 @@ async function createAuser(req, res) {
     password: req.body.password,
     email: req.body.email,
     dateNasc: req.body.dateNasc,
+    role: req.body.role,
   });
 
   try {
@@ -35,16 +36,21 @@ async function createAuser(req, res) {
 }
 
 async function updatedUser(req, res) {
-  const id = req.params.id;
   try {
-    await User.findByIdAndUpdate(id, {
-      username: req.body.username,
-      password: req.body.password,
-      email: req.body.email,
-      dateNasc: req.body.dateNasc,
-    });
-    let updatedUser = await Recipe.find();
-    res.json(updatedUser);
+    await Recipe.updateOne(
+      { _id: req.params.id },
+      {
+        $set: {
+          username: req.body.username,
+          password: req.body.password,
+          email: req.body.email,
+          dateNasc: req.body.dateNasc,
+        },
+      }
+    );
+
+    let updated = Recipe.findById(req.body.id);
+    res.status(200).json(updated);
   } catch (error) {}
 }
 
@@ -66,8 +72,8 @@ async function loginWithUser(req, res) {
   });
 
   try {
-    if(username === UserP) {
-      res.redirect("/")
+    if (username === UserP) {
+      res.redirect("/");
     }
   } catch (error) {
     res.json({ message: error });
