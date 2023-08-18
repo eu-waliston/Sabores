@@ -1,10 +1,6 @@
 const express = require("express");
 const router = express.Router();
 
-const { register, login, update, deleteUser } = require("../Guard/Auth");
-
-const { adminAuth, userAuth } = require("../Auth/Auth");
-
 const {
   createArecipe,
   getAllRecipes,
@@ -13,14 +9,14 @@ const {
   deleteRecipe,
 } = require("../Controller/recive.controller");
 
-router.post("/recipe", createArecipe, userAuth, adminAuth);
+router.get("/recipes", getAllRecipes);
 
-router.get("/recipes", getAllRecipes, userAuth, adminAuth);
+router.get("/recipes/:id", getSingleRecipe);
 
-router.get("/recipes/:id", getSingleRecipe, userAuth, adminAuth);
+router.post("/recipes", createArecipe);
 
-router.patch("/recipes/:id", updateRecipe, userAuth, adminAuth);
+router.put("/recipes/:id", updateRecipe);
 
-router.delete("/recipe/:id", deleteRecipe, adminAuth);
+router.delete("/recipes/:id", deleteRecipe);
 
 module.exports = router;

@@ -28,7 +28,7 @@ async function getAllRecipes(req, res) {
 
 async function getSingleRecipe(req, res) {
   try {
-    const recipeById = await Recipe.findBiId(req.params.id);
+    const recipeById = await Recipe.findById(req.params.id);
     res.json(recipeById);
   } catch (error) {
     res.json({ message: error });
@@ -38,17 +38,25 @@ async function getSingleRecipe(req, res) {
 async function updateRecipe(req, res) {
   const id = req.params.id;
   try {
-    await Recipe.findByIdAndUpdate(id, {
-      name: req.params.name,
-      imageURL: req.params.imageURL,
-      recipe: req.params.recipe,
-      comment: req.params.comment,
-      rate: req.params.rate,
-    });
-    let updatedRecipe = await Recipe.find();
-    res.json(updatedRecipe);
+    let updated = Recipe.findByIdAndUpdate(
+      id,
+      {
+        $set: {
+          name: req.body.name,
+          imageURL: req.body.imageURL,
+          recipe: req.body.recipe,
+          comment: req.body.comment,
+          rate: req.body.rate,
+        },
+      },
+      (err, recipe) => {
+        if (err) throw err;
+        res.status(200).json(recipe);
+      }
+    );
+    console.log(updated);
   } catch (error) {
-    res.json({ message: error });
+    res.status(500).json(error);
   }
 }
 
