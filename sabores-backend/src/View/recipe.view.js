@@ -15,7 +15,7 @@ router.get("/recipes/:id", getSingleRecipe);
 
 router.post("/recipes", createArecipe);
 
-router.put("/recipes/:id", updateRecipe);
+router.patch("/recipes/:id", updateRecipe);
 
 router.delete("/recipes/:id", deleteRecipe);
 

@@ -36,10 +36,9 @@ async function getSingleRecipe(req, res) {
 }
 
 async function updateRecipe(req, res) {
-  const id = req.params.id;
   try {
-    let updated = Recipe.findByIdAndUpdate(
-      id,
+    await Recipe.updateOne(
+      { _id: req.params.id },
       {
         $set: {
           name: req.body.name,
@@ -48,15 +47,12 @@ async function updateRecipe(req, res) {
           comment: req.body.comment,
           rate: req.body.rate,
         },
-      },
-      (err, recipe) => {
-        if (err) throw err;
-        res.status(200).json(recipe);
       }
     );
-    console.log(updated);
+    let updated = Recipe.findById(req.body.id);
+    res.status(200).json(updated);
   } catch (error) {
-    res.status(500).json(error);
+    res.status(500).json({ message: error });
   }
 }
 
