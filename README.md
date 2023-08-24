@@ -21,6 +21,8 @@
 
 ### Hospedagem:
   - vercel
+  - AWS
+  - Render API
     
 ## Design Das Páginas
 ### HOME:
