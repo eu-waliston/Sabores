@@ -11,5 +11,11 @@ $text-color-1: #fff;
 $default-height: 100vh;
 $default-height-1: 25vh;
 $default-height-2: 250vh;
-$default-width:68%;
+$default-width: 68%;
 $div-center: 0 auto;
+
+//Media Query View
+$breakpoint-tablet: 768px;
+$breakpoint-Small-Screen: 1024;
+$breakpoint-Midium-Screen: 1280;
+$breakpoint-Big-Screen: 1920;
