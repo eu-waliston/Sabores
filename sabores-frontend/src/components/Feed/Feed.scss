@@ -52,13 +52,13 @@
 
     top: 5%;
     .img-peq {
-      width: 390px;
-      height: 300px;
+      width: 350px;
+      height: 250px;
       border-radius: 10px;
       box-shadow: 5px 5px 45px rgba(0, 0, 0, 0.15);
     }
     .img-gran {
-      width: 600px;
+      width: 500px;
       height: 300px;
       border-radius: 10px;
       box-shadow: 5px 5px 45px rgba(0, 0, 0, 0.15);
@@ -75,7 +75,7 @@
         .info__receitas_1 {
           p {
             font-family: $font-webiste;
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 300;
             margin-top: 5px;
           }
@@ -83,13 +83,14 @@
           h1 {
             font-family: $font-webiste;
             color: $website-theme;
+            font-size: 1.4rem;
           }
 
           button {
             background-color: $website-theme;
             border: none;
-            width: 120px;
-            height: 40px;
+            width: 110px;
+            height: 35px;
             border-radius: 20px;
             color: $text-color-1;
             font-weight: bold;
@@ -124,8 +125,8 @@
           background-color: $website-theme;
           margin-top: 10px;
           border: none;
-          width: 120px;
-          height: 38px;
+          width: 110px;
+          height: 35px;
           border-radius: 20px;
           color: $text-color-1;
           font-weight: bold;
