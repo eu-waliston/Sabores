@@ -9,7 +9,7 @@
   - Styled Components
   - React icons
   - Font Aweasome
-  - Css
+  - sass
 
 ### No Back:
   - NodeJs
