@@ -18,6 +18,8 @@
   - Passport
   - MongoDB
   - Mongoose
+  - jwt
+  - tokens
 
 ### Hospedagem:
   - vercel
