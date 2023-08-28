@@ -9,7 +9,7 @@
   - Styled Components
   - React icons
   - Font Aweasome
-  - Css
+  - sass
 
 ### No Back:
   - NodeJs
@@ -18,6 +18,8 @@
   - Passport
   - MongoDB
   - Mongoose
+  - jwt
+  - tokens
 
 ### Hospedagem:
   - vercel
