@@ -8,7 +8,7 @@
   - ReactJs
   - Styled Components
   - React icons
-  - Font Aweasome
+  - Google Fonts
   - sass
 
 ### No Back:
