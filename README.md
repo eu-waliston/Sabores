@@ -6,7 +6,6 @@
 ### Sabores será uma webapp focado em receitas, algumas das tecnologias que vão ser utilizadas no projeto
 ### No Front:
   - ReactJs
-  - Styled Components
   - React icons
   - Google Fonts
   - sass
