@@ -9,6 +9,7 @@
   - React icons
   - Google Fonts
   - sass
+  - JS
 ### No Back:
   - NodeJs
   - Express
