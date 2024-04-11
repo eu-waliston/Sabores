@@ -22,6 +22,7 @@ const Home = () => {
         </a>
       </div>
       < Feed/>
+      <br />
       <Footer />
     </>
   );

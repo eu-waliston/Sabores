@@ -31,17 +31,17 @@
 
   .leftmenu-itens {
     display: grid;
-    gap: 30px;
+    gap: 25px;
     position: relative;
-    top: 130px;
+    top: 100px;
     .leftmenu--iten {
       display: flex;
       align-items: center;
       align-content: center;
       i {
         margin-right: 30px;
-        font-size: 2rem;
-        margin-left: 20px;
+        font-size: 1.5rem;
+        margin-left: 25px;
 
         &:hover {
           transition: 0.5s;
@@ -90,17 +90,17 @@
 
   .leftmenu-itens {
     display: grid;
-    gap: 30px;
+    gap: 20px;
     position: relative;
-    top: 130px;
+    top: 100px;
     .leftmenu--iten {
       display: flex;
       align-items: center;
       align-content: center;
       i {
         margin-right: 30px;
-        font-size: 2rem;
-        margin-left: 20px;
+        font-size: 1.8rem;
+        margin-left: 23px;
 
         &:hover {
           transition: 0.5s;
