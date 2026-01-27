@@ -111,95 +111,146 @@ const Feed = () => {
   const [recipes, setRecipes] = useState([]);
   const [loading, setLoading] = useState(true);
   const [layout, setLayout] = useState("mixed");
+  const [page, setPage] = useState(1);
+  const [hasMore, setHasMore] = useState(true);
 
   useEffect(() => {
-    // Simulando chamada à API
-    const fetchRecipes = async () => {
-      setLoading(true);
-      try {
-        // TODO: Substituir pela chamada real à API
-        // const response = await api.get('/recipes');
-        // setRecipes(response.data);
-        
-        // Usando dados mockados por enquanto
-        setTimeout(() => {
-          setRecipes(MOCK_RECIPES);
-          setLoading(false);
-        }, 500);
-      } catch (error) {
-        console.error("Erro ao carregar receitas:", error);
-        setLoading(false);
-      }
-    };
-
     fetchRecipes();
   }, []);
+
+  const fetchRecipes = async () => {
+    setLoading(true);
+    try {
+      // TODO: Substituir pela chamada real à API
+      // const response = await api.get('/recipes', { params: { page } });
+      // const newRecipes = response.data.recipes;
+
+      // Usando dados mockados por enquanto
+      setTimeout(() => {
+        setRecipes(MOCK_RECIPES);
+        setHasMore(false); // Mock data tem apenas 10 itens
+        setLoading(false);
+      }, 800);
+    } catch (error) {
+      console.error("Erro ao carregar receitas:", error);
+      setLoading(false);
+    }
+  };
 
   const handleRecipeClick = (recipeId) => {
     // TODO: Navegar para a página da receita
     console.log("Receita clicada:", recipeId);
     // history.push(`/recipe/${recipeId}`);
+    // Ou usar navigate se estiver usando react-router v6
+    // navigate(`/receita/${recipeId}`);
   };
 
-  const handleLayoutToggle = () => {
-    setLayout(layout === "mixed" ? "uniform" : "mixed");
+  const handleLayoutToggle = (newLayout) => {
+    setLayout(newLayout);
   };
 
-  if (loading) {
+  const handleLoadMore = () => {
+    // TODO: Carregar mais receitas da API
+    setPage(prevPage => prevPage + 1);
+    console.log("Carregando mais receitas... página:", page + 1);
+
+    // Mock de carregar mais
+    setTimeout(() => {
+      // Simulando que não há mais receitas após a primeira página
+      setHasMore(false);
+      alert("Todas as receitas já foram carregadas!");
+    }, 1000);
+  };
+
+  if (loading && recipes.length === 0) {
     return (
-      <div className="feed__loading">
-        <div className="loading-spinner"></div>
-        <p>Carregando receitas...</p>
-      </div>
+        <div className="feed__loading">
+          <div className="loading-spinner"></div>
+          <p>Carregando receitas...</p>
+        </div>
     );
   }
 
   return (
-    <div className="feed" id="feed">
-      <FeedBanner />
-      
-      <div className="feed__controls">
-        <div className="feed__layout-toggle">
-          <button 
-            className={`feed__layout-button ${layout === "mixed" ? 'active' : ''}`}
-            onClick={() => setLayout("mixed")}
-            aria-label="Layout misto"
-          >
-            Misto
-          </button>
-          <button 
-            className={`feed__layout-button ${layout === "uniform" ? 'active' : ''}`}
-            onClick={() => setLayout("uniform")}
-            aria-label="Layout uniforme"
-          >
-            Uniforme
-          </button>
-        </div>
-        
-        <div className="feed__stats">
+      <div className="feed" id="feed">
+        <FeedBanner />
+
+        <div className="feed__controls">
+          <div className="feed__layout-toggle">
+            <button
+                className={`feed__layout-button ${layout === "mixed" ? 'active' : ''}`}
+                onClick={() => handleLayoutToggle("mixed")}
+                aria-label="Layout misto"
+                disabled={loading}
+            >
+              Misto
+            </button>
+            <button
+                className={`feed__layout-button ${layout === "uniform" ? 'active' : ''}`}
+                onClick={() => handleLayoutToggle("uniform")}
+                aria-label="Layout uniforme"
+                disabled={loading}
+            >
+              Uniforme
+            </button>
+          </div>
+
+          <div className="feed__stats">
           <span className="feed__count">
-            {recipes.length} receitas disponíveis
+            {recipes.length} receita{recipes.length !== 1 ? 's' : ''} disponível{recipes.length !== 1 ? 'is' : ''}
           </span>
+          </div>
         </div>
-      </div>
 
-      <div className="feed__content">
-        <RecipeGrid 
-          recipes={recipes}
-          layout={layout}
-          onRecipeClick={handleRecipeClick}
-        />
-      </div>
+        <div className="feed__content">
+          <RecipeGrid
+              recipes={recipes}
+              layout={layout}
+              onRecipeClick={handleRecipeClick}
+              loading={loading && recipes.length === 0}
+              emptyMessage="Nenhuma receita encontrada para os filtros selecionados."
+          />
+        </div>
 
-      <div className="feed__footer">
-        <p className="feed__footer-text">
-          Não encontrou o que procurava? Use nossa busca avançada!
-        </p>
-        <button className="feed__more-button">
-          Carregar mais receitas
-        </button>
+        {hasMore && recipes.length > 0 && (
+            <div className="feed__footer">
+              <button
+                  className="feed__more-button"
+                  onClick={handleLoadMore}
+                  disabled={loading}
+                  aria-label="Carregar mais receitas"
+              >
+                {loading ? (
+                    <>
+                      <span className="feed__spinner" aria-hidden="true"></span>
+                      Carregando...
+                    </>
+                ) : (
+                    "Carregar mais receitas"
+                )}
+              </button>
+              <p className="feed__footer-text">
+                Mostrando {recipes.length} de 312 receitas disponíveis
+              </p>
+            </div>
+        )}
+
+        {!hasMore && recipes.length > 0 && (
+            <div className="feed__end">
+              <div className="feed__end-icon">🎉</div>
+              <h3 className="feed__end-title">Você viu todas as receitas!</h3>
+              <p className="feed__end-message">
+                Explore outras categorias ou tente uma busca diferente.
+              </p>
+              <button
+                  className="feed__end-button"
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              >
+                Voltar ao topo
+              </button>
+            </div>
+        )}
       </div>
-    </div>
   );
 };
 

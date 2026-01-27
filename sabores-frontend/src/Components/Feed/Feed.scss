@@ -1,4 +1,4 @@
-@import "../../utilities/variables.scss";
+@import "../../Utilities/variables.scss";
 
 .feed {
   width: 100%;
@@ -60,14 +60,24 @@
     cursor: pointer;
     transition: all 0.2s ease;
 
-    &:hover {
+    &:hover:not(:disabled) {
       background: #f0f0f0;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
     }
 
     &.active {
       background: $website-theme;
       color: $text-color-1;
       box-shadow: 0 2px 8px rgba($website-theme, 0.3);
+    }
+
+    &:focus {
+      outline: 2px solid $website-theme;
+      outline-offset: 2px;
     }
   }
 
@@ -95,13 +105,6 @@
     margin-top: 60px;
   }
 
-  &__footer-text {
-    font-family: $font-webiste;
-    font-size: 1.1rem;
-    color: #666;
-    margin-bottom: 30px;
-  }
-
   &__more-button {
     background: $website-theme;
     color: $text-color-1;
@@ -114,11 +117,95 @@
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba($website-theme, 0.2);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
 
-    &:hover {
+    &:hover:not(:disabled) {
       background: darken($website-theme, 10%);
       transform: translateY(-2px);
       box-shadow: 0 6px 20px rgba($website-theme, 0.3);
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    &:focus {
+      outline: 2px solid $text-color-1;
+      outline-offset: 2px;
+    }
+  }
+
+  &__spinner {
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: $text-color-1;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+
+  &__footer-text {
+    font-family: $font-webiste;
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0;
+  }
+
+  &__end {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, rgba($website-theme, 0.05) 0%, rgba($website-theme, 0.02) 100%);
+    border-radius: 30px;
+    margin-top: 60px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__end-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+  }
+
+  &__end-title {
+    font-family: $font-beauty;
+    font-size: 1.8rem;
+    color: #333;
+    margin: 0 0 12px 0;
+  }
+
+  &__end-message {
+    font-family: $font-webiste;
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.5;
+    margin: 0 0 24px 0;
+  }
+
+  &__end-button {
+    background: transparent;
+    color: $website-theme;
+    border: 2px solid $website-theme;
+    padding: 10px 24px;
+    border-radius: 25px;
+    font-family: $font-webiste;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: rgba($website-theme, 0.1);
+      transform: translateY(-2px);
+    }
+
+    &:focus {
+      outline: 2px solid $website-theme;
+      outline-offset: 2px;
     }
   }
 }
@@ -145,6 +232,15 @@
     &__footer {
       padding: 30px 16px;
       margin-top: 40px;
+    }
+
+    &__end {
+      padding: 40px 16px;
+      margin-top: 40px;
+    }
+
+    &__end-title {
+      font-size: 1.5rem;
     }
   }
 }
