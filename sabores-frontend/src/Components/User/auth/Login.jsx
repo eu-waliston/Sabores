@@ -6,7 +6,7 @@ import { FaUser, FaLock } from "react-icons/fa";
 import AuthLayout from "../layout/AuthLayout";
 import InputField from "../forms/InputField";
 import PasswordField from "../forms/PasswordField";
-import SocialLogin from "./SocialLogin";
+// import SocialLogin from "./SocialLogin";
 import "./Auth.scss";
 
 const Login = () => {
@@ -47,10 +47,10 @@ const Login = () => {
     }
   };
 
-  const handleSocialLogin = (provider) => {
-    console.log(`Login com ${provider}`);
-    // Implementar login social
-  };
+  // const handleSocialLogin = (provider) => {
+  //   console.log(`Login com ${provider}`);
+  //   // Implementar login social
+  // };
 
   return (
     <AuthLayout
@@ -135,7 +135,7 @@ const Login = () => {
             <span className="auth-form__divider-text">ou continue com</span>
           </div>
 
-          <SocialLogin onSocialLogin={handleSocialLogin} />
+          {/*<SocialLogin onSocialLogin={handleSocialLogin} />*/}
 
           <div className="auth-form__footer">
             <p className="auth-form__footer-text">
