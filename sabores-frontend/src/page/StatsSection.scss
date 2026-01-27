@@ -1,0 +1,199 @@
+@import "../../utilities/variables.scss";
+
+.stats-section {
+  padding: 100px 40px;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(
+      90deg,
+      $website-theme 0%,
+      lighten($website-theme, 20%) 50%,
+      $website-theme 100%
+    );
+  }
+
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  &__title {
+    font-family: $font-beauty;
+    font-size: 2.5rem;
+    color: #333;
+    margin: 0 0 16px 0;
+    letter-spacing: 0.5px;
+  }
+
+  &__subtitle {
+    font-family: $font-webiste;
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+  }
+
+  &__card {
+    background: $text-color-1;
+    border-radius: 20px;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba($website-theme, 0.05);
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, $website-theme 0%, lighten($website-theme, 20%) 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    &:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+
+      &::before {
+        opacity: 1;
+      }
+
+      .stats-section__card-icon {
+        transform: scale(1.1) rotate(5deg);
+      }
+    }
+  }
+
+  &__card-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease;
+    flex-shrink: 0;
+  }
+
+  &__card-icon-svg {
+    font-size: 2rem;
+  }
+
+  &__card-content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__card-value {
+    margin-bottom: 8px;
+  }
+
+  &__card-number {
+    font-family: $font-beauty;
+    font-size: 2.5rem;
+    color: #333;
+    line-height: 1;
+    font-weight: 600;
+  }
+
+  &__card-label {
+    font-family: $font-webiste;
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.4;
+    display: block;
+  }
+
+  &__footer {
+    text-align: center;
+    padding-top: 40px;
+    border-top: 1px solid rgba($website-theme, 0.1);
+  }
+
+  &__footer-text {
+    font-family: $font-webiste;
+    font-size: 1.1rem;
+    color: $website-theme;
+    font-weight: 500;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  // Responsive
+  @media (max-width: 768px) {
+    padding: 60px 20px;
+
+    &__title {
+      font-size: 2rem;
+    }
+
+    &__subtitle {
+      font-size: 1rem;
+    }
+
+    &__grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    &__card {
+      padding: 24px;
+    }
+
+    &__card-icon {
+      width: 60px;
+      height: 60px;
+    }
+
+    &__card-icon-svg {
+      font-size: 1.5rem;
+    }
+
+    &__card-number {
+      font-size: 2rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    &__card {
+      flex-direction: column;
+      text-align: center;
+      gap: 20px;
+    }
+  }
+}

@@ -1,29 +1,79 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { Helmet } from "react-helmet-async";
+import HeroSection from "./HeroSection";
+import StatsSection from "./StatsSection";
+import FeaturesSection from "./FeaturesSection";
+import CTA from "./CTA";
+import Feed from "../components/feed/Feed";
+import Footer from "../components/footer/Footer";
 import "./Home.scss";
-import Feed from "../components/Feed/Feed";
-import Footer from "../components/Footer/Footer";
-
 
 const Home = () => {
+  useEffect(() => {
+    // Scroll suave para âncoras
+    const handleAnchorClick = (e) => {
+      const target = e.target;
+      if (target.hash && target.hash.startsWith("#")) {
+        e.preventDefault();
+        const element = document.querySelector(target.hash);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    };
+
+    document.addEventListener("click", handleAnchorClick);
+    return () => document.removeEventListener("click", handleAnchorClick);
+  }, []);
+
   return (
     <>
-      <div className="home__component">
-        <div className="home--message">
-          <div className="home---sab">
-            <h1>Sabores</h1>
-            <h1 className="st-2">Receitas Online.</h1>
+      <Helmet>
+        <title>Sabores - Descubra, compartilhe e saboreie as melhores receitas</title>
+        <meta 
+          name="description" 
+          content="Comunidade de food lovers compartilhando milhares de receitas. 
+          Encontre receitas por ingredientes, tempo de preparo, dificuldade e muito mais." 
+        />
+        <meta 
+          name="keywords" 
+          content="receitas, culinária, comida, chef, cozinha, gastronomia, pratos, sobremesas" 
+        />
+        <meta property="og:title" content="Sabores - Receitas Online" />
+        <meta property="og:description" content="Sua jornada culinária começa aqui" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://sabores.com" />
+      </Helmet>
+
+      <main className="home">
+        {/* Hero Section */}
+        <HeroSection />
+
+        {/* Stats Section */}
+        <StatsSection />
+
+        {/* Features Section */}
+        <FeaturesSection />
+
+        {/* Feed Section */}
+        <section id="feed" className="home__feed-section">
+          <div className="home__feed-container">
+            <div className="home__feed-header">
+              <h2 className="home__feed-title">Receitas em Destaque</h2>
+              <p className="home__feed-subtitle">
+                As receitas mais populares da nossa comunidade esta semana
+              </p>
+            </div>
+            <Feed />
           </div>
-          <div>
-            <img src="./images/Sabores-Logo.png" alt="website logo" />
-          </div>
-        </div>
-        <a href="#feed" className="discover">
-          descobrir
-        </a>
-      </div>
-      < Feed/>
-      <br />
-      <Footer />
+        </section>
+
+        {/* CTA Section */}
+        <CTA />
+
+        {/* Footer */}
+        <Footer />
+      </main>
     </>
   );
 };

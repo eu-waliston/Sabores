@@ -1,0 +1,353 @@
+@import "../../utilities/variables.scss";
+
+.cta-section {
+  padding: 100px 40px;
+  background: linear-gradient(135deg, $website-theme 0%, darken($website-theme, 10%) 100%);
+  color: $text-color-1;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__main {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  &__title {
+    font-family: $font-beauty;
+    font-size: 3rem;
+    line-height: 1.2;
+    margin: 0;
+    letter-spacing: 0.5px;
+  }
+
+  &__description {
+    font-family: $font-webiste;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    opacity: 0.9;
+    margin: 0;
+  }
+
+  &__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 18px 36px;
+    border-radius: 50px;
+    font-family: $font-webiste;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+
+    &--primary {
+      background: $text-color-1;
+      color: $website-theme;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+
+      &:hover {
+        background: darken($text-color-1, 10%);
+        transform: translateY(-4px) scale(1.05);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+      }
+    }
+
+    &--secondary {
+      background: transparent;
+      color: $text-color-1;
+      border: 2px solid $text-color-1;
+
+      &:hover {
+        background: rgba($text-color-1, 0.1);
+        transform: translateY(-4px);
+      }
+    }
+
+    &:focus {
+      outline: 2px solid $text-color-1;
+      outline-offset: 4px;
+    }
+  }
+
+  &__button-text {
+    position: relative;
+    z-index: 1;
+  }
+
+  &__button-icon {
+    position: relative;
+    z-index: 1;
+    font-size: 1rem;
+    transition: transform 0.3s ease;
+  }
+
+  &__button:hover &__button-icon {
+    transform: translateX(4px);
+  }
+
+  &__stats {
+    display: flex;
+    gap: 40px;
+    margin-top: 20px;
+  }
+
+  &__stat {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  &__stat-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background: rgba($text-color-1, 0.1);
+    border-radius: 12px;
+    color: $text-color-1;
+    font-size: 1.5rem;
+  }
+
+  &__stat-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__stat-number {
+    font-family: $font-beauty;
+    font-size: 2rem;
+    line-height: 1;
+  }
+
+  &__stat-label {
+    font-family: $font-webiste;
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-top: 4px;
+  }
+
+  &__app {
+    position: relative;
+  }
+
+  &__app-container {
+    background: rgba($text-color-1, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    padding: 40px;
+    border: 1px solid rgba($text-color-1, 0.2);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  }
+
+  &__app-screen {
+    background: $text-color-1;
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 30px;
+    color: #333;
+  }
+
+  &__app-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  &__app-logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    overflow: hidden;
+    background: rgba($website-theme, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__app-logo-image {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+  }
+
+  &__app-title {
+    font-family: $font-beauty;
+    font-size: 1.5rem;
+    color: $website-theme;
+    margin: 0;
+  }
+
+  &__app-content {
+    text-align: center;
+  }
+
+  &__app-description {
+    font-family: $font-webiste;
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.5;
+    margin: 0 0 30px 0;
+  }
+
+  &__app-features {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+
+  &__app-feature {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &__app-feature-icon {
+    font-size: 1.5rem;
+    color: $website-theme;
+  }
+
+  &__app-feature-text {
+    font-family: $font-webiste;
+    font-size: 0.85rem;
+    color: #666;
+    white-space: nowrap;
+  }
+
+  &__app-badges {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  &__app-badge {
+    background: rgba($text-color-1, 0.9);
+    border-radius: 15px;
+    padding: 15px 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+    &:hover {
+      background: $text-color-1;
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  &__badge-text {
+    font-family: $font-webiste;
+    font-size: 0.8rem;
+    color: #666;
+  }
+
+  &__badge-store {
+    font-family: $font-webiste;
+    font-size: 1.1rem;
+    color: #333;
+    font-weight: 600;
+  }
+
+  // Responsive
+  @media (max-width: 992px) {
+    &__container {
+      grid-template-columns: 1fr;
+      gap: 60px;
+      text-align: center;
+    }
+
+    &__buttons {
+      justify-content: center;
+    }
+
+    &__stats {
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 60px 20px;
+
+    &__title {
+      font-size: 2.5rem;
+    }
+
+    &__description {
+      font-size: 1.1rem;
+    }
+
+    &__app-container {
+      padding: 30px 20px;
+    }
+
+    &__app-screen {
+      padding: 20px;
+    }
+
+    &__app-features {
+      gap: 20px;
+    }
+
+    &__stats {
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    &__title {
+      font-size: 2rem;
+    }
+
+    &__button {
+      width: 100%;
+      max-width: 300px;
+    }
+
+    &__app-badges {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}
