@@ -4,16 +4,16 @@ import { ROUTES } from './constants';
 import LoadingSpinner from '../components/common/LoadingSpinner';
 
 // Lazy loading das páginas públicas
-const HomePage = lazy(() => import('../pages/Home/Home'));
-const RecipesPage = lazy(() => import('../pages/Recipes/Recipes'));
-const RecipeDetailPage = lazy(() => import('../pages/RecipeDetail/RecipeDetail'));
-const CategoriesPage = lazy(() => import('../pages/Categories/Categories'));
-const CategoryDetailPage = lazy(() => import('../pages/CategoryDetail/CategoryDetail'));
-const SearchPage = lazy(() => import('../pages/Search/Search'));
-const AboutPage = lazy(() => import('../pages/About/About'));
-const ContactPage = lazy(() => import('../pages/Contact/Contact'));
-const BlogPage = lazy(() => import('../pages/Blog/Blog'));
-const FAQPage = lazy(() => import('../pages/FAQ/FAQ'));
+const HomePage = lazy(() => import('../Pages/Home'));
+const RecipesPage = lazy(() => import('../Pages/Recipes'));
+const RecipeDetailPage = lazy(() => import('../Pages/RecipeDetail'));
+const CategoriesPage = lazy(() => import('../Pages/Categories'));
+const CategoryDetailPage = lazy(() => import('../Pages/CategoryDetail'));
+const SearchPage = lazy(() => import('../Pages/Search'));
+const AboutPage = lazy(() => import('../Pages/About'));
+const ContactPage = lazy(() => import('../Pages/Contact'));
+const BlogPage = lazy(() => import('../Pages/Blog'));
+const FAQPage = lazy(() => import('../Pages/FAQ'));
 
 const PublicRoutes = () => {
   return (

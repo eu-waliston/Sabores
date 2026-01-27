@@ -1,0 +1,106 @@
+@import "./Utilities/index.scss";
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  font-family: var(--font-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  &__main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  // Scrollbar personalizada
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: var(--color-background-light);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--color-primary);
+    border-radius: 5px;
+
+    &:hover {
+      background: var(--color-primary-dark);
+    }
+  }
+
+  // Seleção de texto
+  &::selection {
+    background-color: var(--color-primary-light);
+    color: var(--color-text-inverse);
+  }
+
+  // Modo dark
+  [data-theme="dark"] & {
+    background-color: var(--color-background-dark);
+    color: var(--color-text-primary);
+  }
+}
+
+// Utilidades globais
+.text-gradient {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-padding {
+  padding: var(--section-padding-y-md) var(--container-padding-md);
+
+  @include respond-to(md) {
+    padding: var(--section-padding-y-sm) var(--container-padding-sm);
+  }
+}
+
+.container-wide {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 var(--container-padding-md);
+
+  @include respond-to(md) {
+    padding: 0 var(--container-padding-sm);
+  }
+}
+
+// Animações de entrada
+.fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.slide-in-up {
+  animation: slideInUp 0.5s ease-out;
+}
+
+// Transições suaves para temas
+* {
+  transition: background-color 0.3s ease,
+  color 0.3s ease,
+  border-color 0.3s ease,
+  box-shadow 0.3s ease;
+}
+
+// Responsividade para containers
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+
+  @include respond-to(md) {
+    padding: 0 1rem;
+  }
+
+  @include respond-to(sm) {
+    padding: 0 0.5rem;
+  }
+}

@@ -1,45 +1,150 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
+import PrivateRoute from '../Components/Common/PrivateRoute';
+import PublicRoute from '../Components/Common/PublicRoute';
+import LoadingSpinner from '../Components/Common/LoadingSpinner';
 import { ROUTES } from './constants';
-import PublicRoutes from './PublicRoutes';
-import PrivateRoutes from './PrivateRoutes';
-import AdminRoutes from './AdminRoutes';
-import AuthRoutes from './AuthRoutes';
-import ErrorPage from '../pages/ErrorPage';
-import NotFoundPage from '../pages/NotFoundPage';
-import MaintenancePage from '../pages/MaintenancePage';
+
+// Layouts
+const MainLayout = lazy(() => import('../Components/Layout/MainLayout'));
+
+// Páginas Públicas
+const Home = lazy(() => import('../Pages/Home'));
+const Feed = lazy(() => import('../Components/Feed/Feed'));
+const NotFound = lazy(() => import('../Pages/NotFoundPage'));
+
+// Páginas de Autenticação
+const Login = lazy(() => import('../Components/User/auth/Login'));
+const Register = lazy(() => import('../Components/User/auth/Register'));
+const Recovery = lazy(() => import('../Components/User/auth/Recovery'));
+const ResetPassword = lazy(() => import('../Components/User/auth/ResetPassword'));
+const VerifyEmail = lazy(() => import('../Components/User/auth/VerifyEmail'));
+
+// Páginas do Usuário (Protegidas)
+const Profile = lazy(() => import('../Pages/User/Profile'));
+const MyRecipes = lazy(() => import('../Pages/User/MyRecipes'));
+const CreateRecipe = lazy(() => import('../Pages/Recipe/CreateRecipe'));
+const RecipeDetail = lazy(() => import('../Pages/Recipe/RecipeDetail'));
+
+// Páginas de Categorias
+const Categories = lazy(() => import('../Pages/Categories/Categories'));
+const CategoryDetail = lazy(() => import('../Pages/CategoryDetail/CategoryDetail'));
+
+// Outras Páginas
+const About = lazy(() => import('../Pages/About/About'));
+const Contact = lazy(() => import('../Pages/Contact/Contact'));
+const Blog = lazy(() => import('../Pages/Blog/Blog'));
+const FAQ = lazy(() => import('../Pages/FAQ/FAQ'));
+const Search = lazy(() => import('../Pages/Search/Search'));
+
+// Páginas de Erro
+const ServerError = lazy(() => import('../Pages/Error/ServerError'));
+const Maintenance = lazy(() => import('../Pages/Error/Maintenance'));
 
 const AppRoutes = () => {
-  // Verificar se está em manutenção (pode vir de variável de ambiente)
-  const isMaintenance = process.env.REACT_APP_MAINTENANCE === 'true';
+    return (
+        <Suspense fallback={<LoadingSpinner fullScreen text="Carregando..." />}>
+            <Routes>
+                {/* Layout Principal */}
+                <Route element={<MainLayout />}>
+                    {/* Home */}
+                    <Route path={ROUTES.HOME} element={<Home />} />
 
-  if (isMaintenance) {
-    return <MaintenancePage />;
-  }
+                    {/* Feed de Receitas */}
+                    <Route path={ROUTES.FEED} element={<Feed />} />
 
-  return (
-    <Routes>
-      {/* Redirecionamento padrão */}
-      <Route path="/" element={<Navigate to={ROUTES.HOME} replace />} />
-      
-      {/* Rotas públicas */}
-      <Route path="/*" element={<PublicRoutes />} />
-      
-      {/* Rotas de autenticação */}
-      <Route path="/auth/*" element={<AuthRoutes />} />
-      
-      {/* Rotas privadas (usuário logado) */}
-      <Route path="/app/*" element={<PrivateRoutes />} />
-      
-      {/* Rotas admin */}
-      <Route path="/admin/*" element={<AdminRoutes />} />
-      
-      {/* Rotas de erro */}
-      <Route path={ROUTES.ERROR} element={<ErrorPage />} />
-      <Route path={ROUTES.NOT_FOUND} element={<NotFoundPage />} />
-      <Route path="*" element={<NotFoundPage />} />
-    </Routes>
-  );
+                    {/* Receitas */}
+                    <Route path={ROUTES.RECIPES} element={<div>Lista de Receitas</div>} />
+                    <Route path={ROUTES.RECIPE_DETAIL} element={<RecipeDetail />} />
+
+                    {/* Categorias */}
+                    <Route path={ROUTES.CATEGORIES} element={<Categories />} />
+                    <Route path={ROUTES.CATEGORY_DETAIL} element={<CategoryDetail />} />
+
+                    {/* Busca */}
+                    <Route path={ROUTES.SEARCH} element={<Search />} />
+
+                    {/* Informações */}
+                    <Route path={ROUTES.ABOUT} element={<About />} />
+                    <Route path={ROUTES.CONTACT} element={<Contact />} />
+                    <Route path={ROUTES.BLOG} element={<Blog />} />
+                    <Route path={ROUTES.FAQ} element={<FAQ />} />
+
+                    {/* Termos e Políticas */}
+                    <Route path="/termos" element={<div>Termos de Serviço</div>} />
+                    <Route path="/privacidade" element={<div>Política de Privacidade</div>} />
+                    <Route path="/cookies" element={<div>Política de Cookies</div>} />
+
+                    {/* Erros */}
+                    <Route path="/500" element={<ServerError />} />
+                    <Route path="/maintenance" element={<Maintenance />} />
+                </Route>
+
+                {/* Rotas de Autenticação (Sem Layout Principal) */}
+                <Route path={ROUTES.LOGIN} element={
+                    <PublicRoute restricted>
+                        <Login />
+                    </PublicRoute>
+                } />
+
+                <Route path={ROUTES.REGISTER} element={
+                    <PublicRoute restricted>
+                        <Register />
+                    </PublicRoute>
+                } />
+
+                <Route path={ROUTES.RECOVERY} element={
+                    <PublicRoute restricted>
+                        <Recovery />
+                    </PublicRoute>
+                } />
+
+                <Route path={ROUTES.RESET_PASSWORD} element={
+                    <PublicRoute restricted>
+                        <ResetPassword />
+                    </PublicRoute>
+                } />
+
+                <Route path={ROUTES.VERIFY_EMAIL} element={
+                    <PublicRoute>
+                        <VerifyEmail />
+                    </PublicRoute>
+                } />
+
+                {/* Rotas Protegidas do Usuário */}
+                <Route path={ROUTES.PROFILE} element={
+                    <PrivateRoute>
+                        <Profile />
+                    </PrivateRoute>
+                } />
+
+                <Route path={ROUTES.MY_RECIPES} element={
+                    <PrivateRoute>
+                        <MyRecipes />
+                    </PrivateRoute>
+                } />
+
+                <Route path={ROUTES.CREATE_RECIPE} element={
+                    <PrivateRoute>
+                        <CreateRecipe />
+                    </PrivateRoute>
+                } />
+
+                {/* Rotas de Admin (Protegidas com role) */}
+                <Route path="/admin/*" element={
+                    <PrivateRoute roles={['admin']}>
+                        <div>Admin Dashboard</div>
+                    </PrivateRoute>
+                } />
+
+                {/* Redirecionamentos */}
+                <Route path="/" element={<Navigate to={ROUTES.HOME} replace />} />
+
+                {/* 404 - Not Found */}
+                <Route path="*" element={<NotFound />} />
+            </Routes>
+        </Suspense>
+    );
 };
 
 export default AppRoutes;
