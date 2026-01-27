@@ -1,0 +1,152 @@
+@import "../../utilities/variables.scss";
+
+.newsletter {
+  &__content {
+    text-align: center;
+  }
+
+  &__title {
+    font-family: $font-beauty;
+    font-size: 1.5rem;
+    color: $text-color-1;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+  }
+
+  &__subtitle {
+    font-family: $font-webiste;
+    font-size: 0.95rem;
+    color: rgba($text-color-1, 0.8);
+    margin-bottom: 24px;
+    line-height: 1.5;
+  }
+
+  &__form {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  &__input-group {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 12px;
+
+    @media (max-width: 576px) {
+      flex-direction: column;
+    }
+  }
+
+  &__input {
+    flex: 1;
+    padding: 14px 20px;
+    border: 2px solid rgba($text-color-1, 0.2);
+    border-radius: 50px;
+    background: rgba($text-color-1, 0.1);
+    color: $text-color-1;
+    font-family: $font-webiste;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+
+    &::placeholder {
+      color: rgba($text-color-1, 0.6);
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $text-color-1;
+      background: rgba($text-color-1, 0.15);
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 32px;
+    border: none;
+    border-radius: 50px;
+    background: $text-color-1;
+    color: $website-theme;
+    font-family: $font-webiste;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 140px;
+
+    &:hover:not(:disabled) {
+      background: darken($text-color-1, 10%);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    @media (max-width: 576px) {
+      width: 100%;
+    }
+  }
+
+  &__button-text {
+    font-weight: 600;
+  }
+
+  &__button-icon {
+    font-size: 0.9rem;
+  }
+
+  &__spinner {
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba($website-theme, 0.3);
+    border-top-color: $website-theme;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+
+  &__privacy {
+    font-family: $font-webiste;
+    font-size: 0.8rem;
+    color: rgba($text-color-1, 0.7);
+    margin-top: 8px;
+  }
+
+  &__privacy-link {
+    color: $text-color-1;
+    text-decoration: underline;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &__success {
+    padding: 20px;
+    background: rgba(76, 175, 80, 0.1);
+    border-radius: 12px;
+    border: 1px solid rgba(76, 175, 80, 0.3);
+  }
+
+  &__success-message {
+    font-family: $font-webiste;
+    color: #4CAF50;
+    font-weight: 500;
+    margin: 0;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

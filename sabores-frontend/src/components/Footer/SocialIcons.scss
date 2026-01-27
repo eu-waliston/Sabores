@@ -1,0 +1,91 @@
+@import "../../utilities/variables.scss";
+
+.social-icons {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+
+  &__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    color: $text-color-1;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+
+    &:hover {
+      transform: translateY(-3px);
+      background: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    &:focus {
+      outline: 2px solid $text-color-1;
+      outline-offset: 2px;
+    }
+  }
+
+  &__icon {
+    font-size: 1.2rem;
+  }
+
+  // Size variations
+  &--small {
+    gap: 12px;
+
+    .social-icons__link {
+      width: 32px;
+      height: 32px;
+    }
+
+    .social-icons__icon {
+      font-size: 1rem;
+    }
+  }
+
+  &--large {
+    gap: 20px;
+
+    .social-icons__link {
+      width: 48px;
+      height: 48px;
+    }
+
+    .social-icons__icon {
+      font-size: 1.5rem;
+    }
+  }
+
+  // Variant styles
+  &--minimal {
+    .social-icons__link {
+      background: transparent;
+      width: auto;
+      height: auto;
+
+      &:hover {
+        background: transparent;
+        transform: translateY(-2px);
+      }
+    }
+
+    .social-icons__icon {
+      color: currentColor;
+    }
+  }
+
+  &--colored {
+    .social-icons__link {
+      background: $text-color-1;
+      color: $website-theme;
+
+      &:hover {
+        background: $text-color-1;
+      }
+    }
+  }
+}

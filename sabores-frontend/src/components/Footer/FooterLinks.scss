@@ -1,0 +1,79 @@
+@import "../../utilities/variables.scss";
+
+.footer-links {
+  &__title {
+    font-family: $font-beauty;
+    font-size: 1.1rem;
+    color: $text-color-1;
+    margin-bottom: 20px;
+    letter-spacing: 0.5px;
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__item {
+    margin-bottom: 12px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__link {
+    font-family: $font-webiste;
+    font-size: 0.95rem;
+    color: rgba($text-color-1, 0.8);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+
+    &:hover {
+      color: $text-color-1;
+      transform: translateX(4px);
+    }
+
+    &:focus {
+      outline: 2px solid $text-color-1;
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+  }
+
+  &__external-icon {
+    font-size: 0.8rem;
+    opacity: 0.7;
+  }
+
+  // Column variations
+  &--2-col {
+    .footer-links__list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px 30px;
+    }
+  }
+
+  &--3-col {
+    .footer-links__list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px 30px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    &--2-col,
+    &--3-col {
+      .footer-links__list {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+    }
+  }
+}
