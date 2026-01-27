@@ -5,13 +5,6 @@
 <h1 align="center">🍽️ Sabores – Receitas Online</h1>
 
 **Sabores** é um webapp moderno e responsivo focado em **receitas culinárias**, permitindo que usuários descubram, compartilhem e salvem receitas com uma interface amigável e funcional.
-
----
-
-## 🚧 Status do Projeto
-
-> Em desenvolvimento — contribuições são bem-vindas!
-
 ---
 
 ## 🌐 Acesse o Projeto
