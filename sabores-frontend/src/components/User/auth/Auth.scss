@@ -1,0 +1,648 @@
+@import "../../utilities/variables.scss";
+
+.auth-form {
+  &__error {
+    background: rgba(255, 71, 87, 0.1);
+    border: 1px solid rgba(255, 71, 87, 0.3);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 24px;
+  }
+
+  &__error-message {
+    font-family: $font-webiste;
+    font-size: 0.95rem;
+    color: #ff4757;
+    margin: 0 0 8px 0;
+    line-height: 1.4;
+  }
+
+  &__error-link {
+    font-family: $font-webiste;
+    font-size: 0.9rem;
+    color: $website-theme;
+    text-decoration: none;
+    font-weight: 500;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+
+  &__checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    
+    &--large {
+      .auth-form__checkbox-label {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  &__checkbox-input {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    
+    &:checked {
+      background: $website-theme;
+      border-color: $website-theme;
+    }
+    
+    &:focus {
+      outline: 2px solid $website-theme;
+      outline-offset: 2px;
+    }
+  }
+
+  &__checkbox-label {
+    font-family: $font-webiste;
+    font-size: 0.95rem;
+    color: #333;
+    user-select: none;
+  }
+
+  &__forgot-link {
+    font-family: $font-webiste;
+    font-size: 0.95rem;
+    color: $website-theme;
+    text-decoration: none;
+    font-weight: 500;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__submit {
+    width: 100%;
+    padding: 16px;
+    background: $website-theme;
+    border: none;
+    border-radius: 12px;
+    color: $text-color-1;
+    font-family: $font-webiste;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    
+    &:hover:not(:disabled) {
+      background: darken($website-theme, 10%);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba($website-theme, 0.3);
+    }
+    
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    
+    &:focus {
+      outline: 2px solid $text-color-1;
+      outline-offset: 2px;
+    }
+  }
+
+  &__spinner {
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: $text-color-1;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+
+  &__divider {
+    display: flex;
+    align-items: center;
+    margin: 32px 0;
+    color: #999;
+    
+    &::before,
+    &::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #e0e0e0;
+    }
+  }
+
+  &__divider-text {
+    padding: 0 16px;
+    font-family: $font-webiste;
+    font-size: 0.9rem;
+    color: #666;
+  }
+
+  &__steps {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    position: relative;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 20px;
+      left: 10%;
+      right: 10%;
+      height: 2px;
+      background: #e0e0e0;
+      z-index: 0;
+    }
+  }
+
+  &__step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__step-number {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #f0f0f0;
+    color: #999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: $font-webiste;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+  }
+
+  &__step-label {
+    font-family: $font-webiste;
+    font-size: 0.85rem;
+    color: #999;
+    white-space: nowrap;
+  }
+
+  &__step--active {
+    .auth-form__step-number {
+      background: $website-theme;
+      color: $text-color-1;
+      box-shadow: 0 4px 12px rgba($website-theme, 0.3);
+    }
+    
+    .auth-form__step-label {
+      color: $website-theme;
+      font-weight: 500;
+    }
+  }
+
+  &__step-content {
+    margin-bottom: 40px;
+  }
+
+  &__next,
+  &__back {
+    padding: 14px 32px;
+    border-radius: 12px;
+    font-family: $font-webiste;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  &__next {
+    background: $website-theme;
+    color: $text-color-1;
+    border: none;
+    width: 100%;
+    
+    &:hover:not(:disabled) {
+      background: darken($website-theme, 10%);
+      transform: translateY(-2px);
+    }
+    
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  &__back {
+    background: transparent;
+    color: #666;
+    border: 2px solid #e0e0e0;
+    
+    &:hover {
+      background: #f9f9f9;
+      border-color: #b0b0b0;
+    }
+  }
+
+  &__step-buttons {
+    display: flex;
+    gap: 16px;
+    margin-top: 24px;
+    
+    .auth-form__next,
+    .auth-form__back {
+      flex: 1;
+    }
+  }
+
+  &__terms {
+    margin-bottom: 32px;
+  }
+
+  &__terms-link {
+    color: $website-theme;
+    text-decoration: none;
+    font-weight: 500;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__info {
+    background: rgba($website-theme, 0.05);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 24px;
+  }
+
+  &__info-text {
+    font-family: $font-webiste;
+    font-size: 0.95rem;
+    color: #666;
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  &__footer {
+    margin-top: 40px;
+    text-align: center;
+  }
+
+  &__footer-text {
+    font-family: $font-webiste;
+    font-size: 0.95rem;
+    color: #666;
+    margin: 0;
+  }
+
+  &__footer-link {
+    color: $website-theme;
+    text-decoration: none;
+    font-weight: 600;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+// Success states
+.auth-success,
+.auth-error,
+.auth-verifying {
+  text-align: center;
+  padding: 20px 0;
+
+  &__icon {
+    font-size: 4rem;
+    color: #2ed573;
+    margin-bottom: 24px;
+    
+    .auth-error & {
+      color: #ff4757;
+    }
+  }
+
+  &__content {
+    margin-bottom: 32px;
+  }
+
+  &__title {
+    font-family: $font-beauty;
+    font-size: 2rem;
+    color: #333;
+    margin: 0 0 12px 0;
+  }
+
+  &__message {
+    font-family: $font-webiste;
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.5;
+    margin: 0 0 16px 0;
+  }
+
+  &__email {
+    font-family: $font-webiste;
+    font-size: 1.1rem;
+    color: $website-theme;
+    font-weight: 600;
+    margin: 0 0 24px 0;
+  }
+
+  &__instructions {
+    font-family: $font-webiste;
+    font-size: 0.95rem;
+    color: #888;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  &__actions {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  &__button {
+    padding: 14px 32px;
+    background: $website-theme;
+    color: $text-color-1;
+    border: none;
+    border-radius: 12px;
+    font-family: $font-webiste;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      background: darken($website-theme, 10%);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba($website-theme, 0.3);
+    }
+    
+    &--primary {
+      background: $website-theme;
+    }
+  }
+
+  &__resend {
+    padding: 12px 24px;
+    background: transparent;
+    color: $website-theme;
+    border: 2px solid $website-theme;
+    border-radius: 12px;
+    font-family: $font-webiste;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    
+    &:hover:not(:disabled) {
+      background: rgba($website-theme, 0.1);
+    }
+    
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  &__tips {
+    background: #f9f9f9;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: left;
+  }
+
+  &__tip-title {
+    font-family: $font-webiste;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 12px 0;
+  }
+
+  &__tip-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__tip-list li {
+    font-family: $font-webiste;
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 8px;
+    padding-left: 16px;
+    position: relative;
+    
+    &::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: #999;
+    }
+  }
+
+  &__features {
+    text-align: left;
+    margin: 24px 0;
+  }
+
+  &__features-title {
+    font-family: $font-webiste;
+    font-size: 1.1rem;
+    color: #333;
+    margin: 0 0 16px 0;
+    font-weight: 600;
+  }
+
+  &__features-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__feature {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-family: $font-webiste;
+    font-size: 1rem;
+    color: #666;
+  }
+
+  &__feature-icon {
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+
+  &__feature-text {
+    flex: 1;
+  }
+}
+
+.auth-error {
+  &__actions {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 24px;
+    background: $website-theme;
+    color: $text-color-1;
+    border: none;
+    border-radius: 12px;
+    font-family: $font-webiste;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      background: darken($website-theme, 10%);
+      transform: translateY(-2px);
+    }
+  }
+
+  &__button-icon {
+    font-size: 1.1rem;
+  }
+
+  &__link {
+    font-family: $font-webiste;
+    font-size: 0.95rem;
+    color: $website-theme;
+    text-decoration: none;
+    font-weight: 500;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.auth-verifying {
+  &__spinner {
+    width: 60px;
+    height: 60px;
+    border: 3px solid rgba($website-theme, 0.1);
+    border-top-color: $website-theme;
+    border-radius: 50%;
+    margin: 0 auto 24px;
+    animation: spin 1s linear infinite;
+  }
+
+  &__message {
+    font-family: $font-webiste;
+    font-size: 1.1rem;
+    color: #666;
+    margin: 0;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// Social login
+.social-login {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 32px;
+
+  &__button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 16px;
+    background: $text-color-1;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      border-color: $website-theme;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    
+    &:focus {
+      outline: 2px solid $website-theme;
+      outline-offset: 2px;
+    }
+  }
+
+  &__icon {
+    font-size: 1.5rem;
+  }
+
+  &__text {
+    font-family: $font-webiste;
+    font-size: 0.85rem;
+    color: #333;
+    font-weight: 500;
+  }
+}
+
+// Responsive
+@media (max-width: 576px) {
+  .auth-form {
+    &__steps {
+      &::before {
+        left: 15%;
+        right: 15%;
+      }
+    }
+
+    &__step-label {
+      font-size: 0.75rem;
+    }
+  }
+
+  .social-login {
+    grid-template-columns: 1fr;
+  }
+
+  .auth-success,
+  .auth-error {
+    &__actions {
+      .auth-success__button,
+      .auth-error__button {
+        width: 100%;
+      }
+    }
+  }
+}
