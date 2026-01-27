@@ -4,15 +4,15 @@
 
 // Font family utilities
 .font-primary {
-  font-family: var(--font-primary);
+  font-family: var(--font-primary), serif;
 }
 
 .font-secondary {
-  font-family: var(--font-secondary);
+  font-family: var(--font-secondary), serif;
 }
 
 .font-mono {
-  font-family: var(--font-mono);
+  font-family: var(--font-mono), serif;
 }
 
 // Font size utilities

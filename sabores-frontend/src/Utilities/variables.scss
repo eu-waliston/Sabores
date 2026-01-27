@@ -5,12 +5,37 @@
 @import url("https://fonts.googleapis.com/css2?family=Caprasimo&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 
+// Variáveis SCSS (para uso em arquivos .scss)
+$font-primary: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+$font-beauty: 'Caprasimo', serif;
+$font-webiste: 'Inter', sans-serif;
+$font-mono: 'Inter', monospace;
+
+// Colors (main theme - Laranja Sabores)
+$website-theme: #f97316;
+$text-color-1: #ffffff;
+$text-color-2: #333333;
+$text-color-3: #666666;
+
+// Color variations
+$website-theme-light: #fdba74;
+$website-theme-dark: #c2410c;
+
+// Background colors
+$bg-color-1: #ffffff;
+$bg-color-2: #f8f9fa;
+$bg-color-3: #e9ecef;
+
+// ======================
+// CSS VARIABLES (para uso em JavaScript)
+// ======================
 :root {
   // Font Families
-  --font-primary: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-  --font-secondary: 'Caprasimo', serif;
-  --font-mono: 'Inter', monospace;
-  
+  --font-primary: #{$font-primary};
+  --font-beauty: #{$font-beauty};
+  --font-webiste: #{$font-webiste};
+  --font-mono: #{$font-mono};
+
   // Font Weights
   --font-weight-thin: 100;
   --font-weight-extra-light: 200;
@@ -21,7 +46,7 @@
   --font-weight-bold: 700;
   --font-weight-extra-bold: 800;
   --font-weight-black: 900;
-  
+
   // Font Sizes
   --font-size-xs: 0.75rem;    // 12px
   --font-size-sm: 0.875rem;   // 14px
@@ -34,7 +59,7 @@
   --font-size-5xl: 3rem;      // 48px
   --font-size-6xl: 3.75rem;   // 60px
   --font-size-7xl: 4.5rem;    // 72px
-  
+
   // Line Heights
   --line-height-none: 1;
   --line-height-tight: 1.25;
@@ -42,7 +67,7 @@
   --line-height-normal: 1.5;
   --line-height-relaxed: 1.625;
   --line-height-loose: 2;
-  
+
   // Letter Spacing
   --letter-spacing-tighter: -0.05em;
   --letter-spacing-tight: -0.025em;
@@ -50,6 +75,19 @@
   --letter-spacing-wide: 0.025em;
   --letter-spacing-wider: 0.05em;
   --letter-spacing-widest: 0.1em;
+
+  // Colors
+  --website-theme: #{$website-theme};
+  --website-theme-light: #{$website-theme-light};
+  --website-theme-dark: #{$website-theme-dark};
+
+  --text-color-1: #{$text-color-1};
+  --text-color-2: #{$text-color-2};
+  --text-color-3: #{$text-color-3};
+
+  --bg-color-1: #{$bg-color-1};
+  --bg-color-2: #{$bg-color-2};
+  --bg-color-3: #{$bg-color-3};
 }
 
 // ======================
@@ -100,7 +138,7 @@ $breakpoint-3xl: 1920px;
   --border-radius-2xl: 1.5rem;    // 24px
   --border-radius-3xl: 2rem;      // 32px
   --border-radius-full: 9999px;
-  
+
   --border-width-thin: 1px;
   --border-width-medium: 2px;
   --border-width-thick: 4px;
@@ -168,4 +206,176 @@ $breakpoint-3xl: 1920px;
   --size-72: 18rem;        // 288px
   --size-80: 20rem;        // 320px
   --size-96: 24rem;        // 384px
+}
+
+// ======================
+// MIXINS UTILITÁRIOS
+// ======================
+
+// Mixin para media queries
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == xs {
+    @media (max-width: #{$breakpoint-xs}) { @content; }
+  } @else if $breakpoint == sm {
+    @media (max-width: #{$breakpoint-sm}) { @content; }
+  } @else if $breakpoint == md {
+    @media (max-width: #{$breakpoint-md}) { @content; }
+  } @else if $breakpoint == lg {
+    @media (max-width: #{$breakpoint-lg}) { @content; }
+  } @else if $breakpoint == xl {
+    @media (max-width: #{$breakpoint-xl}) { @content; }
+  } @else if $breakpoint == 2xl {
+    @media (max-width: #{$breakpoint-2xl}) { @content; }
+  } @else {
+    @media (max-width: $breakpoint) { @content; }
+  }
+}
+
+// Mixin para flex center
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Mixin para flex column
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+// Mixin para gradient text
+@mixin gradient-text($color1: $website-theme, $color2: $website-theme-light) {
+  background: linear-gradient(135deg, $color1 0%, $color2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+// Mixin para box shadow
+@mixin box-shadow($level: 'md') {
+  @if $level == 'xs' {
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  } @else if $level == 'sm' {
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  } @else if $level == 'md' {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  } @else if $level == 'lg' {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  } @else if $level == 'xl' {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  } @else if $level == '2xl' {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  }
+}
+
+// Mixin para transition
+@mixin transition($property: all, $duration: 0.3s, $timing: ease) {
+  transition: $property $duration $timing;
+}
+
+// Mixin para border radius
+@mixin border-radius($size: 'md') {
+  @if $size == 'sm' {
+    border-radius: 0.25rem;
+  } @else if $size == 'md' {
+    border-radius: 0.5rem;
+  } @else if $size == 'lg' {
+    border-radius: 0.75rem;
+  } @else if $size == 'xl' {
+    border-radius: 1rem;
+  } @else if $size == '2xl' {
+    border-radius: 1.5rem;
+  } @else if $size == 'full' {
+    border-radius: 9999px;
+  }
+}
+
+// Mixin para gradient background
+@mixin gradient-bg($color1: $website-theme, $color2: $website-theme-dark, $angle: 135deg) {
+  background: linear-gradient($angle, $color1 0%, $color2 100%);
+}
+
+// Mixin para container
+@mixin container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+
+  @include respond-to(md) {
+    padding: 0 1rem;
+  }
+
+  @include respond-to(sm) {
+    padding: 0 0.5rem;
+  }
+}
+
+// ======================
+// CLASSES UTILITÁRIAS
+// ======================
+
+// Container
+.container {
+  @include container;
+}
+
+// Flex utilities
+.flex-center {
+  @include flex-center;
+}
+
+.flex-column {
+  @include flex-column;
+}
+
+// Text utilities
+.text-gradient {
+  @include gradient-text;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+// Spacing utilities
+.mt-1 { margin-top: 0.25rem; }
+.mt-2 { margin-top: 0.5rem; }
+.mt-4 { margin-top: 1rem; }
+.mt-8 { margin-top: 2rem; }
+
+.mb-1 { margin-bottom: 0.25rem; }
+.mb-2 { margin-bottom: 0.5rem; }
+.mb-4 { margin-bottom: 1rem; }
+.mb-8 { margin-bottom: 2rem; }
+
+.p-1 { padding: 0.25rem; }
+.p-2 { padding: 0.5rem; }
+.p-4 { padding: 1rem; }
+.p-8 { padding: 2rem; }
+
+// Visibility utilities
+.hidden {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .hidden-mobile {
+    display: none !important;
+  }
+}
+
+@media (min-width: 769px) {
+  .hidden-desktop {
+    display: none !important;
+  }
 }
