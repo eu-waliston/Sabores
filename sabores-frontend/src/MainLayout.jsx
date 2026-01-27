@@ -83,7 +83,7 @@ const MainLayout = () => {
               </div>
             </>
           ) : (
-            {/* Desktop layout com wrapper */}
+            // Desktop layout com wrapper
             <LeftMenuWrapper>
               <div className="main-layout__main">
                 <Outlet />
