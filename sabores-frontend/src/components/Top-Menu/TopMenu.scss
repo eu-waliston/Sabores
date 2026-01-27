@@ -1,52 +1,212 @@
 @import "../../utilities/variables.scss";
 
-.top_menu {
+.top-menu {
   position: fixed;
-  width: 100%;
-  z-index: 5;
-  height: 100px;
-  background-color: $background-color;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: $text-color-1;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+  padding: 0 40px;
 
-  .top_menu__component {
-    display: flex;
-    justify-content: space-evenly;
+  &--scrolled {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    padding: 0 40px;
+    
+    .top-menu__container {
+      height: 70px;
+    }
+  }
+
+  &--mobile {
+    padding: 0 20px;
+    
+    &.top-menu--scrolled {
+      padding: 0 20px;
+    }
+  }
+
+  &__container {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
     align-items: center;
-    align-content: center;
-    margin-top: 10px;
+    gap: 40px;
+    height: 90px;
+    transition: height 0.4s ease;
+    max-width: 1600px;
+    margin: 0 auto;
 
-    .menu--itens {
-      h1 {
-        font-family: $font-beauty;
-        letter-spacing: 3px;
-        font-size: 3.5rem;
-        color: $website-theme;
-      }
-
-      .logo--topbar {
-        width: 55px;
-      }
+    @media (max-width: 1200px) {
+      grid-template-columns: auto 1fr auto;
+      gap: 30px;
     }
 
-    .input--topbar {
-      width: 500px;
-      height: 50px;
-      border: none;
-      border-radius: 15px;
-      background-color: $text-color-1;
-      text-indent: 30px;
+    @media (max-width: 768px) {
+      grid-template-columns: auto 1fr auto;
+      gap: 20px;
+      height: 80px;
+    }
+  }
 
-      &::placeholder {
-        color: #686666;
+  &__logo {
+    z-index: 1001;
+  }
+
+  &__navigation {
+    display: flex;
+    justify-content: center;
+
+    @media (max-width: 1200px) {
+      display: none;
+    }
+  }
+
+  &__search {
+    flex: 1;
+    max-width: 600px;
+    margin: 0 auto;
+
+    @media (max-width: 768px) {
+      display: none;
+      
+      &.top-menu__search--mobile-visible {
+        display: block;
+        position: absolute;
+        top: 100%;
+        left: 20px;
+        right: 20px;
+        margin: 0;
+        padding: 20px 0;
+        background: $text-color-1;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        animation: slideDown 0.3s ease;
       }
     }
+  }
 
-    .fa-user {
-      font-size: 2rem;
-      color: $website-theme;
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
 
-      &:hover {
-        transition: 0.5s;
-        opacity: 0.8;
+  &__hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+
+    @media (max-width: 768px) {
+      display: flex;
+    }
+
+    &:focus {
+      outline: 2px solid $website-theme;
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+  }
+
+  &__hamburger-line {
+    width: 100%;
+    height: 3px;
+    background: $website-theme;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  &__mobile-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: $text-color-1;
+    z-index: 1000;
+    padding: 100px 20px 20px;
+    transform: translateX(-100%);
+    transition: transform 0.4s ease;
+    overflow-y: auto;
+
+    &.top-menu__mobile-nav--open {
+      transform: translateX(0);
+    }
+  }
+}
+
+// Search toggle button for mobile
+.search-toggle {
+  display: none;
+  
+  @media (max-width: 768px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border: none;
+    background: transparent;
+    color: $website-theme;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: rgba($website-theme, 0.1);
+    }
+
+    &:focus {
+      outline: 2px solid $website-theme;
+      outline-offset: 2px;
+    }
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Responsive
+@media (max-width: 768px) {
+  .top-menu {
+    &__container {
+      grid-template-columns: auto 1fr auto;
+    }
+
+    &__search {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: $text-color-1;
+      padding: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transform: translateY(-100%);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 999;
+
+      &.top-menu__search--visible {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
       }
     }
   }

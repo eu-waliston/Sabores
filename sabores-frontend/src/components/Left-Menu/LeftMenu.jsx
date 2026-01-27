@@ -1,89 +1,73 @@
-import React, { useState } from "react";
+import React from "react";
+import MenuToggle from "./MenuToggle";
+import MenuItem from "./MenuItem";
+import useLeftMenu from "./useLeftMenu";
 import "./LeftMenu.scss";
 
 const LeftMenu = () => {
-  const [nav, setNav] = useState(false);
-  const handleClick = () => {
-    setNav(!nav);
-  };
+  const {
+    isCollapsed,
+    activeCategory,
+    categories,
+    toggleMenu,
+    handleCategoryClick,
+  } = useLeftMenu();
 
   return (
-    <div className={nav ? "LeftMenu-Component" : "LeftMenu-Component-clicked"}>
-      <i class={nav ? "btn-effect fa-solid fa-circle-chevron-left" :  "btn-effect fa-solid fa-circle-chevron-right"  } onClick={handleClick}></i>
-
-      <div className="leftmenu-itens">
-        <div className="leftmenu--iten">
-          <i class="fa-solid fa-cake-candles"></i>
-          <h1 className={nav ? "leftmenu--iten-h1" : "h1-effect"}>
-            Bolos e Tortas
-          </h1>
+    <div className={`left-menu ${isCollapsed ? 'left-menu--collapsed' : ''}`}>
+      <MenuToggle 
+        isCollapsed={isCollapsed}
+        onClick={toggleMenu}
+        position="fixed"
+      />
+      
+      <nav 
+        className="left-menu__nav"
+        aria-label="Menu de categorias"
+      >
+        <div className="left-menu__header">
+          {!isCollapsed && (
+            <h2 className="left-menu__title">Categorias</h2>
+          )}
         </div>
-
-        <div className="leftmenu--iten">
-          <i class="fa-solid fa-drumstick-bite"></i>
-          <h1 className={nav ? "leftmenu--iten-h1" : "h1-effect"}>Carnes</h1>
+        
+        <div className="left-menu__items">
+          {categories.map((category) => (
+            <MenuItem
+              key={category.id}
+              category={category.id}
+              label={category.label}
+              count={category.count}
+              isActive={activeCategory === category.id}
+              isCollapsed={isCollapsed}
+              onClick={() => handleCategoryClick(category.id)}
+              to={category.to}
+            />
+          ))}
         </div>
-
-        <div className="leftmenu--iten">
-          <i class="fa-solid fa-egg"></i>
-          <h1 className={nav ? "leftmenu--iten-h1" : "h1-effect"}>Aves</h1>
-        </div>
-
-        <div className="leftmenu--iten">
-          <i class="fa-solid fa-fish"></i>
-          <h1 className={nav ? "leftmenu--iten-h1" : "h1-effect"}>
-            Peixes e Frutos do Mar
-          </h1>
-        </div>
-
-        <div className="leftmenu--iten">
-        <i class="fa-solid fa-bowl-rice"></i>
-          <h1 className={nav ? "leftmenu--iten-h1" : "h1-effect"}>
-            Saladas e Molhos
-          </h1>
-        </div>
-
-        <div className="leftmenu--iten">
-          <i class="fa-solid fa-spoon"></i>
-          <h1 className={nav ? "leftmenu--iten-h1" : "h1-effect"}>Sopas</h1>
-        </div>
-
-        <div className="leftmenu--iten">
-          <i class="fa-solid fa-utensils"></i>
-          <h1 className={nav ? "leftmenu--iten-h1" : "h1-effect"}>Massas</h1>
-        </div>
-
-        <div className="leftmenu--iten">
-          <i class="fa-solid fa-martini-glass-citrus"></i>
-          <h1 className={nav ? "leftmenu--iten-h1" : "h1-effect"}>Bebidas</h1>
-        </div>
-
-        <div className="leftmenu--iten">
-          <i class="fa-solid fa-cookie-bite"></i>
-          <h1 className={nav ? "leftmenu--iten-h1" : "h1-effect"}>
-            Doces e Sobremesas
-          </h1>
-        </div>
-
-        <div className="leftmenu--iten">
-          <i class="fa-solid fa-burger"></i>
-          <h1 className={nav ? "leftmenu--iten-h1" : "h1-effect"}>Lanches</h1>
-        </div>
-
-        <div className="leftmenu--iten">
-        <i class="fa-solid fa-heart-pulse"></i>
-          <h1 className={nav ? "leftmenu--iten-h1" : "h1-effect"}>
-            Alimentação Saudável
-          </h1>
-        </div>
-
-        <div className="leftmenu--iten">
-          <i class="fa-solid fa-kitchen-set"></i>
-          <h1 className={nav ? "leftmenu--iten-h1" : "h1-effect"}>
-            Todas as Receitas
-          </h1>
-        </div>
-      </div>
+        
+        {!isCollapsed && (
+          <div className="left-menu__footer">
+            <div className="left-menu__stats">
+              <span className="left-menu__total">
+                {categories.reduce((sum, cat) => sum + cat.count, 0)} receitas
+              </span>
+              <span className="left-menu__categories">
+                {categories.length} categorias
+              </span>
+            </div>
+            
+            <button 
+              className="left-menu__filter-button"
+              onClick={() => console.log('Abrir filtros')}
+              aria-label="Filtrar receitas"
+            >
+              <span className="left-menu__filter-icon">⚙️</span>
+              <span>Filtros Avançados</span>
+            </button>
+          </div>
+        )}
+      </nav>
     </div>
   );
 };

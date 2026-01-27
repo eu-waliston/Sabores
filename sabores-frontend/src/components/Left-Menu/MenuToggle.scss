@@ -1,0 +1,96 @@
+@import "../../utilities/variables.scss";
+
+.menu-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border: none;
+  border-radius: 50%;
+  background: $text-color-1;
+  color: $website-theme;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  position: relative;
+  z-index: 1000;
+
+  &:hover {
+    background: $website-theme;
+    color: $text-color-1;
+    transform: scale(1.1);
+    box-shadow: 0 8px 30px rgba($website-theme, 0.3);
+    
+    .menu-toggle__tooltip {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  &:focus {
+    outline: 2px solid $website-theme;
+    outline-offset: 2px;
+  }
+
+  &__icon {
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__tooltip {
+    position: absolute;
+    left: calc(100% + 12px);
+    background: $website-theme;
+    color: $text-color-1;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-family: $font-webiste;
+    font-size: 0.85rem;
+    font-weight: 500;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      right: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+      border: 6px solid transparent;
+      border-right-color: $website-theme;
+    }
+  }
+
+  // Position variations
+  &--fixed {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 9999;
+  }
+
+  &--absolute {
+    position: absolute;
+  }
+
+  &--relative {
+    position: relative;
+  }
+
+  // Collapsed state
+  &--collapsed {
+    left: 20px;
+    
+    &:hover {
+      .menu-toggle__tooltip {
+        transform: translateX(0);
+      }
+    }
+  }
+}

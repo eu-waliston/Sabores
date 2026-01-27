@@ -1,0 +1,132 @@
+@import "../../utilities/variables.scss";
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 12px 20px;
+  background: transparent;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    background: rgba($website-theme, 0.08);
+    
+    .menu-item__icon {
+      transform: scale(1.1);
+    }
+  }
+
+  &:focus {
+    outline: 2px solid $website-theme;
+    outline-offset: -2px;
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: rgba($website-theme, 0.1);
+    color: $website-theme;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+  }
+
+  &__content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 16px;
+    min-width: 0;
+  }
+
+  &__label {
+    font-family: $font-webiste;
+    font-size: 1rem;
+    color: #333;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__count {
+    font-family: $font-webiste;
+    font-size: 0.85rem;
+    color: #666;
+    background: rgba($website-theme, 0.1);
+    padding: 2px 8px;
+    border-radius: 12px;
+    min-width: 24px;
+    text-align: center;
+  }
+
+  &__indicator {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 24px;
+    background: $website-theme;
+    border-radius: 2px 0 0 2px;
+  }
+
+  // Active state
+  &--active {
+    background: $website-theme;
+    
+    &:hover {
+      background: darken($website-theme, 5%);
+    }
+
+    .menu-item__icon {
+      background: rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+    }
+
+    .menu-item__label {
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    .menu-item__count {
+      background: rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+    }
+  }
+
+  // Collapsed state
+  &--collapsed {
+    justify-content: center;
+    padding: 16px;
+    
+    .menu-item__icon {
+      width: 48px;
+      height: 48px;
+      margin: 0;
+    }
+    
+    &:hover {
+      .menu-item__icon {
+        transform: scale(1.15);
+      }
+    }
+    
+    &.menu-item--active {
+      .menu-item__icon {
+        background: $website-theme;
+        color: #ffffff;
+        box-shadow: 0 4px 12px rgba($website-theme, 0.3);
+      }
+    }
+  }
+}

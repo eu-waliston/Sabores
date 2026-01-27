@@ -1,145 +1,165 @@
 @import "../../utilities/variables.scss";
 
-.LeftMenu-Component {
-  height: 100vh;
-  width: 350px;
-  background-color: $background-color;
-  z-index: 20;
-  box-shadow: 5px 5px 50px rgba(0, 0, 0, 0.11);
-  transition: 0.8s;
-  overflow: hidden;
-  z-index: 10;
+.left-menu {
   position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 320px;
+  background: $text-color-1;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 
-  .fa-solid {
-    cursor: pointer;
-    color: $website-theme;
+  &--collapsed {
+    width: 80px;
   }
 
-  .btn-effect {
-    position: fixed;
-    font-size: 2rem;
-    z-index: 99999999;
-    top: 50px;
-    left: 20px;
-    color: $website-theme;
-    &:hover {
-      transition: 0.5s;
-      opacity: 0.8;
+  &__nav {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 80px 0 20px;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: rgba($website-theme, 0.05);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: rgba($website-theme, 0.2);
+      border-radius: 3px;
+
+      &:hover {
+        background: rgba($website-theme, 0.3);
+      }
     }
   }
 
-  .leftmenu-itens {
-    display: grid;
-    gap: 25px;
-    position: relative;
-    top: 100px;
-    .leftmenu--iten {
-      display: flex;
-      align-items: center;
-      align-content: center;
-      i {
-        margin-right: 30px;
-        font-size: 1.5rem;
-        margin-left: 25px;
+  &__header {
+    padding: 0 20px 24px;
+    border-bottom: 1px solid rgba($website-theme, 0.1);
+    margin-bottom: 16px;
+  }
 
-        &:hover {
-          transition: 0.5s;
-          opacity: 0.8;
-        }
-      }
+  &__title {
+    font-family: $font-beauty;
+    font-size: 1.5rem;
+    color: $website-theme;
+    margin: 0;
+    letter-spacing: 0.5px;
+  }
 
-      .leftmenu--iten-h1 {
-        font-family: $font-webiste;
-        font-size: 1.1rem;
-        color: $website-theme;
-        font-weight: 300;
-        transition: 0.5s;
-        cursor: pointer;
-        border: none;
+  &__items {
+    flex: 1;
+    padding: 0 12px;
+  }
 
-        &:hover {
-          transition: 0.5s;
-          opacity: 0.8;
-        }
+  &__footer {
+    padding: 20px;
+    border-top: 1px solid rgba($website-theme, 0.1);
+    margin-top: auto;
+  }
+
+  &__stats {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+
+  &__total,
+  &__categories {
+    font-family: $font-webiste;
+    font-size: 0.85rem;
+    color: #666;
+    background: rgba($website-theme, 0.05);
+    padding: 4px 10px;
+    border-radius: 12px;
+  }
+
+  &__filter-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 12px;
+    background: rgba($website-theme, 0.1);
+    border: 2px dashed rgba($website-theme, 0.3);
+    border-radius: 12px;
+    color: $website-theme;
+    font-family: $font-webiste;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: rgba($website-theme, 0.15);
+      border-color: $website-theme;
+      transform: translateY(-2px);
+    }
+
+    &:focus {
+      outline: 2px solid $website-theme;
+      outline-offset: 2px;
+    }
+  }
+
+  &__filter-icon {
+    font-size: 1.2rem;
+  }
+
+  // Responsive
+  @media (max-width: 768px) {
+    transform: translateX(-100%);
+    
+    &--collapsed {
+      transform: translateX(0);
+      width: 80px;
+    }
+
+    &.left-menu--expanded-mobile {
+      transform: translateX(0);
+      width: 320px;
+      box-shadow: 0 0 60px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  @media (min-width: 769px) {
+    .menu-toggle--fixed {
+      left: 340px;
+      
+      &.menu-toggle--collapsed {
+        left: 100px;
       }
     }
   }
 }
 
-.LeftMenu-Component-clicked {
-  height: 100vh;
-  width: 70px;
-  background-color: $background-color;
-  z-index: 20;
-  box-shadow: 5px 5px 50px rgba(0, 0, 0, 0.11);
-  transition: 0.5s;
-  z-index: 10;
+// Overlay para mobile
+.left-menu-overlay {
   position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
 
-  .h1-effect {
-    font-family: $font-webiste;
-    font-size: 1rem;
-    color: $website-theme;
-    font-weight: 300;
-    transition: 0.8s;
-    position: relative;
-    display: none;
-    border: none;
-  }
-
-  .leftmenu-itens {
-    display: grid;
-    gap: 20px;
-    position: relative;
-    top: 100px;
-    .leftmenu--iten {
-      display: flex;
-      align-items: center;
-      align-content: center;
-      i {
-        margin-right: 30px;
-        font-size: 1.8rem;
-        margin-left: 23px;
-
-        &:hover {
-          transition: 0.5s;
-          opacity: 0.8;
-        }
-      }
-
-      .leftmenu--iten-h1 {
-        font-family: $font-webiste;
-        font-size: 1.1rem;
-        color: $website-theme;
-        font-weight: 300;
-        transition: 0.5s;
-        cursor: pointer;
-        border: none;
-
-        &:hover {
-          transition: 0.5s;
-          opacity: 0.8;
-        }
-      }
-    }
-  }
-
-  .fa-solid {
-    cursor: pointer;
-    color: $website-theme;
-  }
-
-  .btn-effect {
-    position: fixed;
-    font-size: 2rem;
-    z-index: 99999999;
-    top: 50px;
-    left: 20px;
-    color: $website-theme;
-    &:hover {
-      transition: 0.5s;
-      opacity: 0.8;
-    }
+  &--visible {
+    opacity: 1;
+    visibility: visible;
   }
 }

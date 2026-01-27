@@ -1,0 +1,334 @@
+@import "../../utilities/variables.scss";
+
+.user-menu {
+  position: relative;
+
+  &__login-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: rgba($website-theme, 0.1);
+    border: 2px solid $website-theme;
+    border-radius: 50px;
+    color: $website-theme;
+    font-family: $font-webiste;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: $website-theme;
+      color: $text-color-1;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba($website-theme, 0.3);
+    }
+
+    &:focus {
+      outline: 2px solid $website-theme;
+      outline-offset: 2px;
+    }
+  }
+
+  &__login-icon {
+    font-size: 1.1rem;
+  }
+
+  &__login-text {
+    @media (max-width: 576px) {
+      display: none;
+    }
+  }
+
+  &__toggle {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 16px;
+    background: transparent;
+    border: 2px solid transparent;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: rgba($website-theme, 0.1);
+      border-color: rgba($website-theme, 0.2);
+    }
+
+    &:focus {
+      outline: 2px solid $website-theme;
+      outline-offset: 2px;
+    }
+
+    &--open {
+      background: rgba($website-theme, 0.1);
+      border-color: rgba($website-theme, 0.3);
+    }
+  }
+
+  &__avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid $website-theme;
+  }
+
+  &__avatar-initials {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: $website-theme;
+    color: $text-color-1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: $font-webiste;
+    font-weight: 600;
+    font-size: 1rem;
+    border: 2px solid $website-theme;
+  }
+
+  &__avatar-icon {
+    width: 40px;
+    height: 40px;
+    color: $website-theme;
+    font-size: 2rem;
+  }
+
+  &__name {
+    font-family: $font-webiste;
+    font-weight: 500;
+    color: #333;
+    font-size: 0.95rem;
+
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  &__chevron {
+    font-size: 0.9rem;
+    color: #666;
+    transition: transform 0.3s ease;
+
+    &--open {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__dropdown {
+    position: absolute;
+    top: calc(100% + 12px);
+    right: 0;
+    width: 320px;
+    background: $text-color-1;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    animation: slideDown 0.2s ease;
+    overflow: hidden;
+
+    @media (max-width: 576px) {
+      position: fixed;
+      top: 80px;
+      left: 20px;
+      right: 20px;
+      width: auto;
+    }
+  }
+
+  &__dropdown-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 24px;
+    background: linear-gradient(135deg, rgba($website-theme, 0.1) 0%, rgba($website-theme, 0.05) 100%);
+    border-bottom: 1px solid #eee;
+  }
+
+  &__dropdown-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid $website-theme;
+  }
+
+  &__dropdown-avatar-initials {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: $website-theme;
+    color: $text-color-1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: $font-webiste;
+    font-weight: 600;
+    font-size: 1.5rem;
+    border: 3px solid $website-theme;
+  }
+
+  &__dropdown-info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__dropdown-name {
+    font-family: $font-webiste;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 4px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__dropdown-email {
+    font-family: $font-webiste;
+    font-size: 0.85rem;
+    color: #666;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__dropdown-links {
+    padding: 16px 0;
+  }
+
+  &__dropdown-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 24px;
+    text-decoration: none;
+    color: #333;
+    font-family: $font-webiste;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+    position: relative;
+
+    &:hover {
+      background: #f9f9f9;
+      color: $website-theme;
+    }
+
+    &:focus {
+      outline: 2px solid $website-theme;
+      outline-offset: -2px;
+    }
+  }
+
+  &__dropdown-link-icon {
+    color: #666;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    width: 20px;
+    text-align: center;
+  }
+
+  &__dropdown-count {
+    margin-left: auto;
+    background: rgba($website-theme, 0.1);
+    color: $website-theme;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 12px;
+    min-width: 24px;
+    text-align: center;
+  }
+
+  &__dropdown-actions {
+    padding: 16px 24px;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+  }
+
+  &__create-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 12px;
+    background: $website-theme;
+    border: none;
+    border-radius: 12px;
+    color: $text-color-1;
+    font-family: $font-webiste;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: darken($website-theme, 10%);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba($website-theme, 0.3);
+    }
+
+    &:focus {
+      outline: 2px solid $text-color-1;
+      outline-offset: 2px;
+    }
+  }
+
+  &__create-icon {
+    font-size: 1rem;
+  }
+
+  &__dropdown-footer {
+    padding: 16px 24px;
+  }
+
+  &__logout-button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 12px;
+    background: transparent;
+    border: 2px solid #f0f0f0;
+    border-radius: 12px;
+    color: #666;
+    font-family: $font-webiste;
+    font-weight: 500;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: #f9f9f9;
+      border-color: #ddd;
+      color: #333;
+    }
+
+    &:focus {
+      outline: 2px solid $website-theme;
+      outline-offset: 2px;
+    }
+  }
+
+  &__logout-icon {
+    font-size: 1rem;
+    color: #999;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
