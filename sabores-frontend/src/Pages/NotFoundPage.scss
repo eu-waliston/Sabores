@@ -1,0 +1,248 @@
+@import "../../utilities/variables.scss";
+
+.not-found {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+
+  &__container {
+    max-width: 1200px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    
+    @media (max-width: 992px) {
+      grid-template-columns: 1fr;
+      text-align: center;
+      gap: 60px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  &__title {
+    font-family: $font-beauty;
+    font-size: 8rem;
+    color: $website-theme;
+    margin: 0;
+    line-height: 1;
+    letter-spacing: 5px;
+  }
+
+  &__subtitle {
+    font-family: $font-beauty;
+    font-size: 2.5rem;
+    color: #333;
+    margin: 0;
+    line-height: 1.2;
+  }
+
+  &__message {
+    font-family: $font-webiste;
+    font-size: 1.2rem;
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+    max-width: 500px;
+  }
+
+  &__actions {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    align-items: center;
+    
+    @media (max-width: 992px) {
+      justify-content: center;
+    }
+    
+    @media (max-width: 480px) {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  }
+
+  &__button {
+    padding: 16px 40px;
+    background: $website-theme;
+    color: $text-color-1;
+    border-radius: 50px;
+    font-family: $font-webiste;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      background: darken($website-theme, 10%);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba($website-theme, 0.3);
+    }
+    
+    &:focus {
+      outline: 2px solid $website-theme;
+      outline-offset: 4px;
+    }
+  }
+
+  &__link {
+    font-family: $font-webiste;
+    font-size: 1.1rem;
+    color: $website-theme;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 16px 0;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__search {
+    margin-top: 20px;
+  }
+
+  &__search-title {
+    font-family: $font-webiste;
+    font-size: 1rem;
+    color: #666;
+    margin: 0 0 12px 0;
+  }
+
+  &__search-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    
+    @media (max-width: 992px) {
+      justify-content: center;
+    }
+  }
+
+  &__search-tag {
+    padding: 8px 20px;
+    background: rgba($website-theme, 0.1);
+    color: $website-theme;
+    border-radius: 50px;
+    font-family: $font-webiste;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      background: rgba($website-theme, 0.2);
+      transform: translateY(-2px);
+    }
+  }
+
+  &__image {
+    position: relative;
+  }
+
+  &__image-container {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    margin: 0 auto;
+  }
+
+  &__image-404 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: $font-beauty;
+    font-size: 20rem;
+    color: rgba($website-theme, 0.05);
+    z-index: 0;
+    user-select: none;
+  }
+
+  &__image-dish {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 10rem;
+    z-index: 1;
+    animation: float 6s ease-in-out infinite;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  25% {
+    transform: translate(-50%, -55%) rotate(5deg);
+  }
+  75% {
+    transform: translate(-50%, -45%) rotate(-5deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .not-found {
+    padding: 20px;
+    
+    &__title {
+      font-size: 6rem;
+    }
+    
+    &__subtitle {
+      font-size: 2rem;
+    }
+    
+    &__image-container {
+      width: 300px;
+      height: 300px;
+    }
+    
+    &__image-404 {
+      font-size: 15rem;
+    }
+    
+    &__image-dish {
+      font-size: 8rem;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .not-found {
+    &__title {
+      font-size: 4rem;
+    }
+    
+    &__subtitle {
+      font-size: 1.8rem;
+    }
+    
+    &__message {
+      font-size: 1.1rem;
+    }
+    
+    &__image-container {
+      width: 250px;
+      height: 250px;
+    }
+    
+    &__image-404 {
+      font-size: 12rem;
+    }
+    
+    &__image-dish {
+      font-size: 6rem;
+    }
+  }
+}

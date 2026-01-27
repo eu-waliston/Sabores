@@ -1,0 +1,75 @@
+@import "../../utilities/variables.scss";
+
+.loading-spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+
+  &--fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba($text-color-1, 0.95);
+    z-index: 9999;
+    padding: 0;
+  }
+
+  &--small {
+    padding: 20px;
+    
+    .loading-spinner__animation {
+      width: 30px;
+      height: 30px;
+    }
+    
+    .loading-spinner__text {
+      font-size: 0.85rem;
+    }
+  }
+
+  &--large {
+    padding: 60px;
+    
+    .loading-spinner__animation {
+      width: 80px;
+      height: 80px;
+    }
+    
+    .loading-spinner__text {
+      font-size: 1.2rem;
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  &__animation {
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba($website-theme, 0.1);
+    border-top-color: $website-theme;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+
+  &__text {
+    font-family: $font-webiste;
+    font-size: 1rem;
+    color: #666;
+    margin: 0;
+    text-align: center;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
