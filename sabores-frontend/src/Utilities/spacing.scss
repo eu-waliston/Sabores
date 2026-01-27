@@ -1,0 +1,121 @@
+// ======================
+// SPACING SYSTEM
+// ======================
+:root {
+  // Spacing scale
+  --space-0: 0;
+  --space-px: 1px;
+  --space-0_5: 0.125rem;   // 2px
+  --space-1: 0.25rem;      // 4px
+  --space-1_5: 0.375rem;   // 6px
+  --space-2: 0.5rem;       // 8px
+  --space-2_5: 0.625rem;   // 10px
+  --space-3: 0.75rem;      // 12px
+  --space-3_5: 0.875rem;   // 14px
+  --space-4: 1rem;         // 16px
+  --space-5: 1.25rem;      // 20px
+  --space-6: 1.5rem;       // 24px
+  --space-7: 1.75rem;      // 28px
+  --space-8: 2rem;         // 32px
+  --space-9: 2.25rem;      // 36px
+  --space-10: 2.5rem;      // 40px
+  --space-11: 2.75rem;     // 44px
+  --space-12: 3rem;        // 48px
+  --space-14: 3.5rem;      // 56px
+  --space-16: 4rem;        // 64px
+  --space-20: 5rem;        // 80px
+  --space-24: 6rem;        // 96px
+  --space-28: 7rem;        // 112px
+  --space-32: 8rem;        // 128px
+  --space-36: 9rem;        // 144px
+  --space-40: 10rem;       // 160px
+  --space-44: 11rem;       // 176px
+  --space-48: 12rem;       // 192px
+  --space-52: 13rem;       // 208px
+  --space-56: 14rem;       // 224px
+  --space-60: 15rem;       // 240px
+  --space-64: 16rem;       // 256px
+  --space-72: 18rem;       // 288px
+  --space-80: 20rem;       // 320px
+  --space-96: 24rem;       // 384px
+  
+  // Container padding
+  --container-padding-sm: 1rem;
+  --container-padding-md: 2rem;
+  --container-padding-lg: 3rem;
+  --container-padding-xl: 4rem;
+  
+  // Section spacing
+  --section-padding-y-sm: 4rem;
+  --section-padding-y-md: 6rem;
+  --section-padding-y-lg: 8rem;
+  --section-padding-y-xl: 10rem;
+  
+  // Gap sizes
+  --gap-xs: 0.5rem;
+  --gap-sm: 1rem;
+  --gap-md: 1.5rem;
+  --gap-lg: 2rem;
+  --gap-xl: 3rem;
+  --gap-2xl: 4rem;
+}
+
+// Spacing utility classes
+.m-0 { margin: var(--space-0); }
+.m-1 { margin: var(--space-1); }
+.m-2 { margin: var(--space-2); }
+.m-3 { margin: var(--space-3); }
+.m-4 { margin: var(--space-4); }
+.m-5 { margin: var(--space-5); }
+.m-6 { margin: var(--space-6); }
+.m-8 { margin: var(--space-8); }
+.m-10 { margin: var(--space-10); }
+.m-12 { margin: var(--space-12); }
+
+.mt-0 { margin-top: var(--space-0); }
+.mt-1 { margin-top: var(--space-1); }
+.mt-2 { margin-top: var(--space-2); }
+.mt-3 { margin-top: var(--space-3); }
+.mt-4 { margin-top: var(--space-4); }
+.mt-5 { margin-top: var(--space-5); }
+.mt-6 { margin-top: var(--space-6); }
+.mt-8 { margin-top: var(--space-8); }
+.mt-10 { margin-top: var(--space-10); }
+.mt-12 { margin-top: var(--space-12); }
+
+// Similar classes for mb, ml, mr, mx, my
+
+.p-0 { padding: var(--space-0); }
+.p-1 { padding: var(--space-1); }
+.p-2 { padding: var(--space-2); }
+.p-3 { padding: var(--space-3); }
+.p-4 { padding: var(--space-4); }
+.p-5 { padding: var(--space-5); }
+.p-6 { padding: var(--space-6); }
+.p-8 { padding: var(--space-8); }
+.p-10 { padding: var(--space-10); }
+.p-12 { padding: var(--space-12); }
+
+.pt-0 { padding-top: var(--space-0); }
+.pt-1 { padding-top: var(--space-1); }
+.pt-2 { padding-top: var(--space-2); }
+.pt-3 { padding-top: var(--space-3); }
+.pt-4 { padding-top: var(--space-4); }
+.pt-5 { padding-top: var(--space-5); }
+.pt-6 { padding-top: var(--space-6); }
+.pt-8 { padding-top: var(--space-8); }
+.pt-10 { padding-top: var(--space-10); }
+.pt-12 { padding-top: var(--space-12); }
+
+// Similar classes for pb, pl, pr, px, py
+
+.gap-0 { gap: var(--space-0); }
+.gap-1 { gap: var(--space-1); }
+.gap-2 { gap: var(--space-2); }
+.gap-3 { gap: var(--space-3); }
+.gap-4 { gap: var(--space-4); }
+.gap-5 { gap: var(--space-5); }
+.gap-6 { gap: var(--space-6); }
+.gap-8 { gap: var(--space-8); }
+.gap-10 { gap: var(--space-10); }
+.gap-12 { gap: var(--space-12); }
