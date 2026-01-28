@@ -2,25 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0a452cd5-d59a-40e5-b8c8-eb77b166913c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/sabores-frontend/src/Components/User/layout/Sabores-Logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sabores-frontend/src/Pages/ErrorPage.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sabores-frontend/src/Pages/food-res.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sabores-frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/sabores-frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sabores-frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/sabores-frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sabores-frontend/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/sabores-frontend/src/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sabores-frontend/src/App.scss" beforeDir="false" afterPath="$PROJECT_DIR$/sabores-frontend/src/App.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sabores-frontend/src/Components/Left-Menu/MenuToggle.scss" beforeDir="false" afterPath="$PROJECT_DIR$/sabores-frontend/src/Components/Left-Menu/MenuToggle.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sabores-frontend/src/Components/Top-Menu/TopMenu.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/sabores-frontend/src/Components/Top-Menu/TopMenu.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sabores-frontend/src/Components/User/auth/Register.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/sabores-frontend/src/Components/User/auth/Register.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sabores-frontend/src/Components/User/layout/AuthLayout.scss" beforeDir="false" afterPath="$PROJECT_DIR$/sabores-frontend/src/Components/User/layout/AuthLayout.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sabores-frontend/src/MainLayout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/sabores-frontend/src/MainLayout.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sabores-frontend/src/MainLayout.scss" beforeDir="false" afterPath="$PROJECT_DIR$/sabores-frontend/src/MainLayout.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sabores-frontend/src/Pages/HeroSection.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/sabores-frontend/src/Pages/HeroSection.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sabores-frontend/src/Pages/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/sabores-frontend/src/Pages/Home.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sabores-frontend/src/Pages/HomeWrapper.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/sabores-frontend/src/Pages/HomeWrapper.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sabores-frontend/src/Pages/ServerError.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/sabores-frontend/src/Pages/ServerError.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sabores-frontend/src/Routes/AppRoutes.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/sabores-frontend/src/Routes/AppRoutes.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sabores-frontend/src/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/sabores-frontend/src/index.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,6 +46,7 @@
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.migrate.executor&quot;: &quot;Run&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -75,6 +59,23 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/sabores-frontend/src" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="migrate" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/sabores-frontend/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="migrate" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.migrate" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -91,7 +92,7 @@
       <option name="presentableId" value="Default" />
       <updated>1769546328933</updated>
       <workItem from="1769546334558" duration="3399000" />
-      <workItem from="1769628930154" duration="6774000" />
+      <workItem from="1769628930154" duration="7076000" />
     </task>
     <servers />
   </component>

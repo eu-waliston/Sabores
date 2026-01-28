@@ -1,4 +1,5 @@
-@import "./Utilities/index.scss";
+@use "Utilities/index.scss";
+@use "Utilities/mixins";
 
 .app {
   min-height: 100vh;
@@ -57,7 +58,7 @@
 .section-padding {
   padding: var(--section-padding-y-md) var(--container-padding-md);
 
-  @include respond-to(md) {
+  @include mixins.respond-to(md) {
     padding: var(--section-padding-y-sm) var(--container-padding-sm);
   }
 }
@@ -67,7 +68,7 @@
   margin: 0 auto;
   padding: 0 var(--container-padding-md);
 
-  @include respond-to(md) {
+  @include mixins.respond-to(md) {
     padding: 0 var(--container-padding-sm);
   }
 }
@@ -96,11 +97,11 @@
   margin: 0 auto;
   padding: 0 2rem;
 
-  @include respond-to(md) {
+  @include mixins.respond-to(md) {
     padding: 0 1rem;
   }
 
-  @include respond-to(sm) {
+  @include mixins.respond-to(sm) {
     padding: 0 0.5rem;
   }
 }

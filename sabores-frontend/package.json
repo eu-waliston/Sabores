@@ -25,7 +25,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "migrate": "sass-migrator division-operator **/*.scss && sass-migrator import-to-use **/*.scss"
+    "sass:migrate": "sass-migrator division **/*.scss && sass-migrator module **/*.scss"
   },
   "eslintConfig": {
     "extends": [
@@ -44,5 +44,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "sass-migrator": "^2.5.7"
   }
 }

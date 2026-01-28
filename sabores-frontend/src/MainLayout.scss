@@ -1,4 +1,4 @@
-@import "./Utilities/variables.scss";
+@use "Utilities/variables.scss";
 
 .main-layout {
   min-height: 100vh;
@@ -35,7 +35,7 @@
     left: 0;
     bottom: 0;
     width: 320px;
-    background: $text-color-1;
+    background: variables.$text-color-1;
     z-index: 100;
     transform: translateX(-100%);
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
