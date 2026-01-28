@@ -4,8 +4,8 @@ import HeroSection from "./HeroSection";
 import StatsSection from "./StatsSection";
 import FeaturesSection from "./FeaturesSection";
 import CTA from "./CTA";
-import Feed from "../components/feed/Feed";
-import Footer from "../components/footer/Footer";
+import Feed from "../Components/Feed/Feed";
+import Footer from "../Components/Footer/Footer";
 import "./Home.scss";
 
 const Home = () => {

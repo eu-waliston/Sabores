@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ROUTES } from '../../Routes/constants';
-import './ErrorPages.scss';
+import { ROUTES } from '../Routes/constants';
+import './ErrorPage.scss';
 
 const ServerError = () => {
     return (

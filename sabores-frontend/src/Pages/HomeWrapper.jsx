@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import TopMenu from "../components/topmenu/TopMenu";
-import LeftMenu from "../components/leftmenu/LeftMenu";
+import TopMenu from "../Components/Top-Menu/TopMenu";
+import LeftMenu from "../Components/Left-Menu/LeftMenu";
 import Home from "./Home";
 import "./HomeWrapper.scss";
 

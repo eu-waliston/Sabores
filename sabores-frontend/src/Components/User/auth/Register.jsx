@@ -6,8 +6,8 @@ import { FaUser, FaEnvelope, FaCalendar, FaLock } from "react-icons/fa";
 import AuthLayout from "../layout/AuthLayout";
 import InputField from "../forms/InputField";
 import PasswordField from "../forms/PasswordField";
-import DatePicker from "../forms/DatePicker";
-import SocialLogin from "./SocialLogin";
+// import DatePicker from "../forms/DatePicker";
+// import SocialLogin from "./SocialLogin";
 import "./Auth.scss";
 
 const Register = () => {
@@ -181,21 +181,21 @@ const Register = () => {
                 autoComplete="email"
               />
 
-              <DatePicker
-                name="dateNasc"
-                label="Data de nascimento"
-                icon={FaCalendar}
-                validation={{
-                  required: "Data de nascimento é obrigatória",
-                  validate: {
-                    minAge: (value) => {
-                      const age = calculateAge(value);
-                      return age >= 13 || "Você deve ter pelo menos 13 anos";
-                    },
-                  },
-                }}
-                onChange={handleDateChange}
-              />
+              {/*<DatePicker*/}
+              {/*  name="dateNasc"*/}
+              {/*  label="Data de nascimento"*/}
+              {/*  icon={FaCalendar}*/}
+              {/*  validation={{*/}
+              {/*    required: "Data de nascimento é obrigatória",*/}
+              {/*    validate: {*/}
+              {/*      minAge: (value) => {*/}
+              {/*        const age = calculateAge(value);*/}
+              {/*        return age >= 13 || "Você deve ter pelo menos 13 anos";*/}
+              {/*      },*/}
+              {/*    },*/}
+              {/*  }}*/}
+              {/*  onChange={handleDateChange}*/}
+              {/*/>*/}
 
               <button
                 type="button"
@@ -292,7 +292,7 @@ const Register = () => {
                 <span className="auth-form__divider-text">ou cadastre-se com</span>
               </div>
 
-              <SocialLogin onSocialLogin={(provider) => console.log(provider)} />
+              {/*<SocialLogin onSocialLogin={(provider) => console.log(provider)} />*/}
 
               <div className="auth-form__step-buttons">
                 <button

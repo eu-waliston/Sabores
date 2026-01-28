@@ -6,7 +6,7 @@
   flex-direction: column;
   background-color: var(--color-background);
   color: var(--color-text-primary);
-  font-family: var(--font-primary);
+  font-family: var(--font-beauty), serif;
   transition: background-color 0.3s ease, color 0.3s ease;
 
   &__main {

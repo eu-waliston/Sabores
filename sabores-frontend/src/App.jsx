@@ -7,19 +7,19 @@ import AppRoutes from './Routes/AppRoutes';
 import './App.scss';
 
 const App = () => {
-  return (
-      <HelmetProvider>
-        <ErrorBoundary>
-          <AuthProvider>
-            <Router>
-              <div className="app">
-                <AppRoutes />
-              </div>
-            </Router>
-          </AuthProvider>
-        </ErrorBoundary>
-      </HelmetProvider>
-  );
+    return (
+        <HelmetProvider>
+            <ErrorBoundary>
+                <Router>
+                    <AuthProvider>
+                        <div className="app">
+                            <AppRoutes />
+                        </div>
+                    </AuthProvider>
+                </Router>
+            </ErrorBoundary>
+        </HelmetProvider>
+    );
 };
 
 export default App;

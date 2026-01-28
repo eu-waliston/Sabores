@@ -1,0 +1,548 @@
+@import "../Utilities/variables";
+
+.error-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  &__container {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+
+    @media (max-width: 992px) {
+      grid-template-columns: 1fr;
+      text-align: center;
+      gap: 60px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  &__icon {
+    font-size: 6rem;
+    margin-bottom: 10px;
+    animation: float 3s ease-in-out infinite;
+
+    &--404 {
+      color: rgba($website-theme, 0.2);
+    }
+
+    &--500 {
+      color: rgba(#ff4757, 0.2);
+    }
+
+    &--maintenance {
+      color: rgba(#ffa502, 0.2);
+      animation: spin 4s linear infinite;
+    }
+  }
+
+  &__code {
+    font-family: $font-beauty;
+    font-size: 8rem;
+    color: $website-theme;
+    margin: 0;
+    line-height: 1;
+    letter-spacing: 5px;
+
+    &--500 {
+      color: #ff4757;
+    }
+
+    &--maintenance {
+      color: #ffa502;
+    }
+  }
+
+  &__title {
+    font-family: $font-beauty;
+    font-size: 2.5rem;
+    color: #333;
+    margin: 0 0 20px 0;
+    line-height: 1.2;
+  }
+
+  &__message {
+    font-family: $font-webiste;
+    font-size: 1.2rem;
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+    max-width: 500px;
+  }
+
+  &__actions {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    align-items: center;
+
+    @media (max-width: 992px) {
+      justify-content: center;
+    }
+
+    @media (max-width: 480px) {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  }
+
+  &__button {
+    padding: 16px 40px;
+    border-radius: 50px;
+    font-family: $font-webiste;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba($website-theme, 0.3);
+    }
+
+    &:focus {
+      outline: 2px solid $website-theme;
+      outline-offset: 4px;
+    }
+
+    &--primary {
+      background: $website-theme;
+      color: $text-color-1;
+
+      &:hover {
+        background: darken($website-theme, 10%);
+      }
+    }
+
+    &--secondary {
+      background: transparent;
+      color: $website-theme;
+      border: 2px solid $website-theme;
+
+      &:hover {
+        background: rgba($website-theme, 0.1);
+      }
+    }
+
+    &--danger {
+      background: #ff4757;
+      color: $text-color-1;
+
+      &:hover {
+        background: darken(#ff4757, 10%);
+      }
+    }
+  }
+
+  &__button-icon {
+    font-size: 1.2rem;
+  }
+
+  &__spinner {
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: $text-color-1;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+
+  &__help {
+    margin-top: 30px;
+    padding: 20px;
+    background: rgba($website-theme, 0.05);
+    border-radius: 12px;
+    border-left: 4px solid $website-theme;
+  }
+
+  &__help-title {
+    font-family: $font-webiste;
+    font-size: 1rem;
+    color: #333;
+    margin: 0 0 10px 0;
+    font-weight: 600;
+  }
+
+  &__help-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__help-item {
+    font-family: $font-webiste;
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 8px;
+    padding-left: 20px;
+    position: relative;
+
+    &::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: $website-theme;
+      font-size: 1.2rem;
+      line-height: 1;
+    }
+  }
+
+  &__contact {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+
+    @media (max-width: 992px) {
+      justify-content: center;
+    }
+  }
+
+  &__contact-label {
+    font-family: $font-webiste;
+    font-size: 0.9rem;
+    color: #666;
+  }
+
+  &__contact-link {
+    font-family: $font-webiste;
+    font-size: 0.9rem;
+    color: $website-theme;
+    text-decoration: none;
+    font-weight: 600;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__countdown {
+    background: rgba($website-theme, 0.1);
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  &__countdown-title {
+    font-family: $font-webiste;
+    font-size: 1rem;
+    color: #333;
+    margin: 0 0 10px 0;
+    font-weight: 600;
+  }
+
+  &__countdown-timer {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+  }
+
+  &__countdown-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__countdown-value {
+    font-family: $font-beauty;
+    font-size: 2rem;
+    color: $website-theme;
+    background: $text-color-1;
+    padding: 10px;
+    border-radius: 8px;
+    min-width: 60px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  &__countdown-label {
+    font-family: $font-webiste;
+    font-size: 0.8rem;
+    color: #666;
+    margin-top: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  &__image {
+    position: relative;
+  }
+
+  &__image-container {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    margin: 0 auto;
+  }
+
+  &__image-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: $font-beauty;
+    font-size: 20rem;
+    color: rgba($website-theme, 0.05);
+    z-index: 0;
+    user-select: none;
+  }
+
+  &__image-illustration {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 12rem;
+    z-index: 1;
+    animation: float 6s ease-in-out infinite;
+
+    &--404 {
+      color: $website-theme;
+    }
+
+    &--500 {
+      color: #ff4757;
+      animation: shake 0.5s ease-in-out infinite alternate;
+    }
+
+    &--maintenance {
+      color: #ffa502;
+    }
+  }
+
+  &__search {
+    margin-top: 30px;
+  }
+
+  &__search-title {
+    font-family: $font-webiste;
+    font-size: 1rem;
+    color: #666;
+    margin: 0 0 12px 0;
+  }
+
+  &__search-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    @media (max-width: 992px) {
+      justify-content: center;
+    }
+  }
+
+  &__search-tag {
+    padding: 8px 20px;
+    background: rgba($website-theme, 0.1);
+    color: $website-theme;
+    border-radius: 50px;
+    font-family: $font-webiste;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: rgba($website-theme, 0.2);
+      transform: translateY(-2px);
+    }
+  }
+
+  // Specific styles for different error types
+  &--404 {
+    .error-page__button--primary {
+      background: $website-theme;
+    }
+
+    .error-page__search {
+      display: block;
+    }
+  }
+
+  &--500 {
+    .error-page__icon,
+    .error-page__code {
+      color: #ff4757;
+    }
+
+    .error-page__button--primary {
+      background: #ff4757;
+
+      &:hover {
+        background: darken(#ff4757, 10%);
+      }
+    }
+  }
+
+  &--maintenance {
+    .error-page__icon,
+    .error-page__code {
+      color: #ffa502;
+    }
+
+    .error-page__button--primary {
+      background: #ffa502;
+
+      &:hover {
+        background: darken(#ffa502, 10%);
+      }
+    }
+
+    .error-page__countdown {
+      display: block;
+    }
+  }
+
+  // Responsive styles
+  @media (max-width: 768px) {
+    padding: 20px;
+
+    &__container {
+      gap: 40px;
+    }
+
+    &__code {
+      font-size: 6rem;
+    }
+
+    &__title {
+      font-size: 2rem;
+    }
+
+    &__message {
+      font-size: 1.1rem;
+    }
+
+    &__image-container {
+      width: 300px;
+      height: 300px;
+    }
+
+    &__image-bg {
+      font-size: 15rem;
+    }
+
+    &__image-illustration {
+      font-size: 8rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    &__code {
+      font-size: 4rem;
+    }
+
+    &__title {
+      font-size: 1.5rem;
+    }
+
+    &__actions {
+      .error-page__button {
+        width: 100%;
+      }
+    }
+
+    &__countdown-timer {
+      gap: 10px;
+    }
+
+    &__countdown-value {
+      font-size: 1.5rem;
+      min-width: 50px;
+      padding: 8px;
+    }
+  }
+}
+
+// Animations
+@keyframes float {
+  0%, 100% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  25% {
+    transform: translate(-50%, -55%) rotate(5deg);
+  }
+  75% {
+    transform: translate(-50%, -45%) rotate(-5deg);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  25% {
+    transform: translate(-53%, -50%) rotate(5deg);
+  }
+  75% {
+    transform: translate(-47%, -50%) rotate(-5deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+// Loading state
+.error-page-loading {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__spinner {
+    width: 60px;
+    height: 60px;
+    border: 4px solid rgba($website-theme, 0.1);
+    border-top-color: $website-theme;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+}

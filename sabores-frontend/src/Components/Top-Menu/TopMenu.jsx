@@ -3,19 +3,13 @@ import Logo from "./Logo";
 import SearchBar from "./SearchBar";
 import UserMenu from "./UserMenu";
 import Navigation from "./Navigation";
-import Notifications from "./Notifications";
+// import Notifications from "./Notifications";
 import "./TopMenu.scss";
 
 const TopMenu = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [searchSuggestions, setSearchSuggestions] = useState([]);
-  const [notifications] = useState([
-    { id: 1, type: 'like', message: 'Maria curtiu sua receita', time: '5 min' },
-    { id: 2, type: 'comment', message: 'João comentou na sua receita', time: '1 hora' },
-    { id: 3, type: 'follow', message: 'Ana começou a seguir você', time: '2 horas' },
-  ]);
-
   // Mock user - será substituído pelo contexto/auth
   const [user, setUser] = useState(null);
 
@@ -121,12 +115,12 @@ const TopMenu = () => {
         {/* Ações do usuário */}
         <div className="top-menu__actions">
           {/* Notificações */}
-          {user && (
-            <Notifications 
-              notifications={notifications}
-              count={notifications.length}
-            />
-          )}
+          {/*{user && (*/}
+          {/*  <Notifications */}
+          {/*    notifications={notifications}*/}
+          {/*    count={notifications.length}*/}
+          {/*  />*/}
+          {/*)}*/}
 
           {/* Menu do usuário */}
           <UserMenu 

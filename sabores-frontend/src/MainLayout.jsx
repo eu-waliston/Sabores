@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import TopMenu from '../components/topmenu/TopMenu';
-import LeftMenu from '../components/leftmenu/LeftMenu';
-import LeftMenuWrapper from '../components/leftmenu/LeftMenuWrapper';
-import Footer from '../components/footer/Footer';
-import LoadingSpinner from '../components/common/LoadingSpinner';
-import { useAuth } from '../components/user/hooks/useAuth';
+import TopMenu from './Components/Top-Menu/TopMenu';
+import LeftMenu from './Components/Left-Menu/LeftMenu';
+import LeftMenuWrapper from './Components/Left-Menu/LeftMenuWrapper';
+import Footer from './Components/Footer/Footer';
+import LoadingSpinner from './Components/Common/LoadingSpinner';
+import { useAuth } from './Components/User/hooks/useAuth';
 import './MainLayout.scss';
 
 const MainLayout = () => {

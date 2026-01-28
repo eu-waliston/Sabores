@@ -6,7 +6,7 @@ import LoadingSpinner from '../Components/Common/LoadingSpinner';
 import { ROUTES } from './constants';
 
 // Layouts
-const MainLayout = lazy(() => import('../Components/Layout/MainLayout'));
+const MainLayout = lazy(() => import('../MainLayout'));
 
 // Páginas Públicas
 const Home = lazy(() => import('../Pages/Home'));
@@ -21,24 +21,24 @@ const ResetPassword = lazy(() => import('../Components/User/auth/ResetPassword')
 const VerifyEmail = lazy(() => import('../Components/User/auth/VerifyEmail'));
 
 // Páginas do Usuário (Protegidas)
-const Profile = lazy(() => import('../Pages/User/Profile'));
-const MyRecipes = lazy(() => import('../Pages/User/MyRecipes'));
-const CreateRecipe = lazy(() => import('../Pages/Recipe/CreateRecipe'));
-const RecipeDetail = lazy(() => import('../Pages/Recipe/RecipeDetail'));
+// const Profile = lazy(() => import('../Pages/User/Profile'));
+const MyRecipes = lazy(() => import('../Components/Feed/Feed'));
+const CreateRecipe = lazy(() => import('../Pages/FeaturesSection'));
+const RecipeDetail = lazy(() => import('../Pages/FeaturesSection')); //fica de olho aquio
 
 // Páginas de Categorias
-const Categories = lazy(() => import('../Pages/Categories/Categories'));
-const CategoryDetail = lazy(() => import('../Pages/CategoryDetail/CategoryDetail'));
+const Categories = lazy(() => import('../Pages/StatsSection'));
+const CategoryDetail = lazy(() => import('../Pages/HomeWrapper'));
 
 // Outras Páginas
-const About = lazy(() => import('../Pages/About/About'));
-const Contact = lazy(() => import('../Pages/Contact/Contact'));
-const Blog = lazy(() => import('../Pages/Blog/Blog'));
-const FAQ = lazy(() => import('../Pages/FAQ/FAQ'));
-const Search = lazy(() => import('../Pages/Search/Search'));
+// const About = lazy(() => import('../Pages/About/About'));
+// const Contact = lazy(() => import('../Pages/Contact/Contact'));
+// const Blog = lazy(() => import('../Pages/Blog/Blog'));
+// const FAQ = lazy(() => import('../Pages/FAQ/FAQ'));
+const Search = lazy(() => import('../Pages/FeaturesSection'));
 
 // Páginas de Erro
-const ServerError = lazy(() => import('../Pages/Error/ServerError'));
+const ServerError = lazy(() => import('../Pages/ServerError'));
 const Maintenance = lazy(() => import('../Pages/Error/Maintenance'));
 
 const AppRoutes = () => {
@@ -65,10 +65,10 @@ const AppRoutes = () => {
                     <Route path={ROUTES.SEARCH} element={<Search />} />
 
                     {/* Informações */}
-                    <Route path={ROUTES.ABOUT} element={<About />} />
-                    <Route path={ROUTES.CONTACT} element={<Contact />} />
-                    <Route path={ROUTES.BLOG} element={<Blog />} />
-                    <Route path={ROUTES.FAQ} element={<FAQ />} />
+                    {/*<Route path={ROUTES.ABOUT} element={<About />} />*/}
+                    {/*<Route path={ROUTES.CONTACT} element={<Contact />} />*/}
+                    {/*<Route path={ROUTES.BLOG} element={<Blog />} />*/}
+                    {/*<Route path={ROUTES.FAQ} element={<FAQ />} />*/}
 
                     {/* Termos e Políticas */}
                     <Route path="/termos" element={<div>Termos de Serviço</div>} />
@@ -112,11 +112,11 @@ const AppRoutes = () => {
                 } />
 
                 {/* Rotas Protegidas do Usuário */}
-                <Route path={ROUTES.PROFILE} element={
-                    <PrivateRoute>
-                        <Profile />
-                    </PrivateRoute>
-                } />
+                {/*<Route path={ROUTES.PROFILE} element={*/}
+                {/*    <PrivateRoute>*/}
+                {/*        <Profile />*/}
+                {/*    </PrivateRoute>*/}
+                {/*} />*/}
 
                 <Route path={ROUTES.MY_RECIPES} element={
                     <PrivateRoute>
