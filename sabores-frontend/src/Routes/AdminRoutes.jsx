@@ -1,17 +1,17 @@
 import React, { lazy, Suspense } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { useAuth } from '../hooks/useAuth';
+import { useAuth } from '../Components/User/hooks/useAuth';
 import { ROUTES } from './constants';
-import AdminLayout from '../Components/layout/AdminLayout';
-import LoadingSpinner from '../Components/common/LoadingSpinner';
-import NotAuthorized from '../pages/NotAuthorized';
+import AdminLayout from '../Components/User/layout/AuthLayout';
+import LoadingSpinner from '../Components/Common/LoadingSpinner';
+import NotAuthorized from '../Pages/Error/Maintenance';
 
 // Lazy loading das páginas admin
-const AdminDashboardPage = lazy(() => import('../pages/admin/Dashboard'));
-const AdminUsersPage = lazy(() => import('../pages/admin/Users'));
-const AdminRecipesPage = lazy(() => import('../pages/admin/Recipes'));
-const AdminCategoriesPage = lazy(() => import('../pages/admin/Categories'));
-const AdminStatsPage = lazy(() => import('../pages/admin/Stats'));
+// const AdminDashboardPage = lazy(() => import('../pages/admin/Dashboard'));
+// const AdminUsersPage = lazy(() => import('../pages/admin/Users'));
+// const AdminRecipesPage = lazy(() => import('../pages/admin/Recipes'));
+// const AdminCategoriesPage = lazy(() => import('../pages/admin/Categories'));
+// const AdminStatsPage = lazy(() => import('../pages/admin/Stats'));
 
 const AdminRoutes = () => {
   const { isAuthenticated, loading, user } = useAuth();
@@ -34,11 +34,11 @@ const AdminRoutes = () => {
     <AdminLayout>
       <Suspense fallback={<LoadingSpinner />}>
         <Routes>
-          <Route path="/dashboard" element={<AdminDashboardPage />} />
-          <Route path="/usuarios" element={<AdminUsersPage />} />
-          <Route path="/receitas" element={<AdminRecipesPage />} />
-          <Route path="/categorias" element={<AdminCategoriesPage />} />
-          <Route path="/estatisticas" element={<AdminStatsPage />} />
+          {/*<Route path="/dashboard" element={<AdminDashboardPage />} />*/}
+          {/*<Route path="/usuarios" element={<AdminUsersPage />} />*/}
+          {/*<Route path="/receitas" element={<AdminRecipesPage />} />*/}
+          {/*<Route path="/categorias" element={<AdminCategoriesPage />} />*/}
+          {/*<Route path="/estatisticas" element={<AdminStatsPage />} />*/}
           
           {/* Redirecionamento padrão */}
           <Route path="*" element={<Navigate to="/admin/dashboard" replace />} />

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import TopMenu from "../../Components/Top-Menu/TopMenu";
 import LeftMenu from "../../Components/Left-Menu/LeftMenu";
-import Home from "./Home";
+import Home from "../Home/Home";
 import "./HomeWrapper.scss";
 
 const HomeWrapper = () => {

@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
-import HeroSection from "./HeroSection";
+import HeroSection from "../HeroSection/HeroSection";
 import StatsSection from "../StatsSection/StatsSection";
-import FeaturesSection from "./FeaturesSection";
-import CTA from "./CTA";
+
+import FeaturesSection from "../FeaturesSection/FeaturesSection";
+import CTA from "../CTA/CTA.jsx";
 import Feed from "../../Components/Feed/Feed";
 import Footer from "../../Components/Footer/Footer";
 import "./Home.scss";
