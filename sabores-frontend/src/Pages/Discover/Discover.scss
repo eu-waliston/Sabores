@@ -1,5 +1,14 @@
 .discover {
 
+  min-height: 60vh;
+
+  &__spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+  }
+
   &__grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -26,4 +35,8 @@
       padding: 1rem;
     }
   }
+
+
 }
+
+

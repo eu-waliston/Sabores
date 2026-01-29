@@ -1,13 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import Feed from "../../Components/Feed/Feed";
+import LoadingSpinner from "../../Components/Common/LoadingSpinner";
 import "./Discover.scss";
 
 const Discover = () => {
-    return (
-        <main className="page discover">
-            <Feed variant="discover" />
-        </main>
-    );
+  const [loading, setLoading] = useState(true);
+
+  return (
+    <main className="page discover">
+
+      <Feed
+        variant="discover"
+        onLoadingChange={setLoading}
+      />
+    </main>
+  );
 };
 
 export default Discover;
