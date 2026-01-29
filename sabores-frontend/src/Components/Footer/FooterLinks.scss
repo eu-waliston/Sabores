@@ -10,8 +10,8 @@
     margin-bottom: 20px;
     letter-spacing: 0.5px;
     position: relative;
-    left: 20px;
-    top: 20px;
+
+    top: 10px;
   }
 
   &__list {
@@ -43,7 +43,7 @@
     align-items: center;
     gap: 4px;
     position: relative;
-    left: 20px;
+
 
     &:hover {
       color: $text-color-1;

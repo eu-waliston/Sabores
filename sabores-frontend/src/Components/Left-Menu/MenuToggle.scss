@@ -4,8 +4,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
+  width: 35px;
+  height: 35px;
   border: none;
   border-radius: 50%;
   background: $text-color-1;
@@ -23,7 +23,7 @@
     color: $text-color-1;
     transform: scale(1.1);
     box-shadow: 0 8px 30px rgba($website-theme, 0.3);
-    
+
     .menu-toggle__tooltip {
       opacity: 1;
       transform: translateX(0);
@@ -57,7 +57,7 @@
     opacity: 0;
     transform: translateX(-10px);
     transition: all 0.3s ease;
-    
+
     &::before {
       content: '';
       position: absolute;
@@ -88,7 +88,7 @@
   // Collapsed state
   &--collapsed {
     left: 100px !important;
-    
+
     &:hover {
       .menu-toggle__tooltip {
         transform: translateX(0);

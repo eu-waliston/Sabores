@@ -2,7 +2,7 @@
 
 .left-menu {
   position: fixed;
-  top: 50px;
+  top: 0;
   left: 0;
   height: 100vh;
   width: 320px;
@@ -56,6 +56,9 @@
     color: $website-theme;
     margin: 0;
     letter-spacing: 0.5px;
+    position: relative;
+    top: 40px;
+    left: 20px;
   }
 
   &__items {
@@ -121,7 +124,7 @@
   // Responsive
   @media (max-width: 768px) {
     transform: translateX(-100%);
-    
+
     &--collapsed {
       transform: translateX(0);
       width: 80px;
@@ -137,7 +140,7 @@
   @media (min-width: 769px) {
     .menu-toggle--fixed {
       left: 340px;
-      
+
       &.menu-toggle--collapsed {
         left: 100px;
       }

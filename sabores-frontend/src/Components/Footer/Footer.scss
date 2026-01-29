@@ -6,6 +6,7 @@
   position: relative;
   overflow: hidden;
 
+ 
   &__main {
     padding: 60px 0 40px;
   }
@@ -96,6 +97,7 @@
     }
   }
 
+
   // Decorative elements
   &::before {
     content: '';
@@ -104,11 +106,10 @@
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(90deg, 
-      rgba(255, 255, 255, 0.3) 0%,
-      rgba(255, 255, 255, 0.6) 50%,
-      rgba(255, 255, 255, 0.3) 100%
-    );
+    background: linear-gradient(90deg,
+        rgba(255, 255, 255, 0.3) 0%,
+        rgba(255, 255, 255, 0.6) 50%,
+        rgba(255, 255, 255, 0.3) 100%);
   }
 }
 

@@ -51,43 +51,38 @@ const Footer = () => {
           {/* Seção Brand */}
           <div className="footer__brand">
             <div className="footer__logo-container">
-              <img
-                src="/images/Sabores-Logo.png"
-                alt="Sabores - Logo"
-                className="footer__logo"
-                width="180"
-                height="60"
-              />
+
               <h2 className="footer__brand-name">Sabores</h2>
             </div>
-            
+
             <p className="footer__brand-tagline">
               Descubra, compartilhe e saboreie as melhores receitas!
             </p>
-            
+
             <div className="footer__social">
               <h3 className="footer__social-title">Conecte-se conosco</h3>
-              <SocialIcons 
+              <SocialIcons
                 onSocialClick={handleSocialClick}
                 variant="colored"
               />
             </div>
           </div>
 
+
           {/* Seção Links */}
           <div className="footer__links-grid">
-            <FooterLinks 
+            <FooterLinks
               title="Navegação"
               links={navigationLinks}
             />
-            
-            <FooterLinks 
+
+            <FooterLinks
               title="Categorias"
               links={categoryLinks}
               columns={2}
             />
-            
-            <FooterLinks 
+
+            <FooterLinks
               title="Recursos"
               links={resourceLinks}
               columns={2}
@@ -96,12 +91,16 @@ const Footer = () => {
 
           {/* Seção Newsletter */}
           <div className="footer__newsletter">
-            <Newsletter 
+            <Newsletter
               onSubmit={handleNewsletterSubmit}
               title="Receba nossas melhores receitas"
               subtitle="Inscreva-se para receber receitas exclusivas diretamente no seu email"
             />
           </div>
+
+
+
+
         </div>
       </div>
 
