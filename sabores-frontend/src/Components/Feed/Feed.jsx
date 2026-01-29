@@ -104,6 +104,26 @@ const MOCK_RECIPES = [
     servings: 8,
     category: "Bolos",
     difficulty: "Difícil"
+  },
+    {
+    id: 11,
+    name: "Brownie de batata doce",
+    image: "/images/home-receita-p-4.jpg",
+    prepTime: 20,
+    cookTime: 40,
+    servings: 8,
+    category: "Doces",
+    difficulty: "Médio"
+  },
+    {
+    id: 12,
+    name: "Brownie de batata doce",
+    image: "/images/home-receita-p-4.jpg",
+    prepTime: 20,
+    cookTime: 40,
+    servings: 8,
+    category: "Doces",
+    difficulty: "Médio"
   }
 ];
 

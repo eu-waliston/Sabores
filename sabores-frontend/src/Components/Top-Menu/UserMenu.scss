@@ -2,7 +2,7 @@
 .user-menu {
   position: fixed;
   right: 8px;
-  top: 15px;
+
 
   @media (max-width: 576px) {
     top: 10px;
@@ -23,6 +23,8 @@
     font-size: 0.95rem;
     cursor: pointer;
     transition: all 0.3s ease;
+    position: relative;
+    top: -9px;
 
 
     &:hover {
@@ -49,6 +51,8 @@
   }
 
   &__toggle {
+        position: relative;
+    top: -9px;
     display: flex;
     align-items: center;
     gap: 12px;

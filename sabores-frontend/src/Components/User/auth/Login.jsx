@@ -35,25 +35,25 @@ const Login = () => {
   const onSubmit = async (data) => {
     setServerError(null);
     const result = await login(data.email, data.password);
-    
+
     if (!result.success) {
       setServerError(result.error);
-      
+
       // Mostrar link para reset de senha se for erro de credenciais
-      if (result.error.toLowerCase().includes('credenciais') || 
-          result.error.toLowerCase().includes('senha')) {
+      if (result.error.toLowerCase().includes('credenciais') ||
+        result.error.toLowerCase().includes('senha')) {
         setShowResetLink(true);
       }
     }
   };
 
-  // const handleSocialLogin = (provider) => {
-  //   console.log(`Login com ${provider}`);
-  //   // Implementar login social
-  // };
+  const handleSocialLogin = () => {
+    navigate("/")
+  };
 
   return (
     <AuthLayout
+
       title="Bem-vindo de volta!"
       subtitle="Entre na sua conta para continuar sua jornada culinária"
       showBackLink={false}
@@ -91,13 +91,13 @@ const Login = () => {
             name="password"
             label="Senha"
             placeholder="Digite sua senha"
-            validation={{
-              required: "Senha é obrigatória",
-              minLength: {
-                value: 6,
-                message: "Senha deve ter pelo menos 6 caracteres",
-              },
-            }}
+          // validation={{
+          //   required: "Senha é obrigatória",
+          //   minLength: {
+          //     value: 6,
+          //     message: "Senha deve ter pelo menos 6 caracteres",
+          //   },
+          // }}
           />
 
           <div className="auth-form__options">
@@ -120,6 +120,7 @@ const Login = () => {
             className="auth-form__submit"
             disabled={!isValid || loading}
             aria-busy={loading}
+            onClick={handleSocialLogin}
           >
             {loading ? (
               <>
@@ -127,7 +128,7 @@ const Login = () => {
                 <span>Entrando...</span>
               </>
             ) : (
-              "Entrar"
+              " Entrar"
             )}
           </button>
 

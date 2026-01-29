@@ -3,38 +3,42 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import "./AuthLayout.scss";
 
-const AuthLayout = ({ 
-  children, 
-  title, 
+const AuthLayout = ({
+  children,
+  title,
   subtitle,
   showLogo = true,
   showBackLink = false,
   backLinkText = "Voltar",
-  backLinkTo = "/"
+  backLinkTo = "/",
+
+  // 🔥 NOVAS PROPS
+  showLegal = false,
+  showLoginHint = false,
+  loginHintText = "Já possui uma conta?",
+  loginHintLinkText = "Faça login",
+  loginHintTo = "/login",
 }) => {
   return (
     <div className="auth-layout">
-      {/* Background decorativo */}
+      {/* Background */}
       <div className="auth-layout__background">
         <div className="auth-layout__pattern"></div>
         <div className="auth-layout__gradient"></div>
       </div>
 
-      {/* Conteúdo */}
       <div className="auth-layout__container">
-        {/* Sidebar (imagem/branding) */}
+        {/* Sidebar */}
         <div className="auth-layout__sidebar">
           {showLogo && (
             <div className="auth-layout__logo">
               <Link to="/" className="auth-layout__logo-link">
-                <img
-                  src="/images/Sabores-Logo.png"
-                  alt="Sabores"
-                  className="auth-layout__logo-image"
-                />
+
                 <div className="auth-layout__logo-text">
                   <h1 className="auth-layout__logo-title">Sabores</h1>
-                  <p className="auth-layout__logo-subtitle">Receitas & Culinária</p>
+                  <p className="auth-layout__logo-subtitle">
+                    Receitas & Culinária
+                  </p>
                 </div>
               </Link>
             </div>
@@ -45,36 +49,27 @@ const AuthLayout = ({
               Junte-se à nossa comunidade de food lovers
             </h2>
             <ul className="auth-layout__features">
-              <li className="auth-layout__feature">
-                <span className="auth-layout__feature-icon">🍳</span>
-                <span className="auth-layout__feature-text">Milhares de receitas</span>
-              </li>
-              <li className="auth-layout__feature">
-                <span className="auth-layout__feature-icon">👨‍🍳</span>
-                <span className="auth-layout__feature-text">Chefs profissionais</span>
-              </li>
-              <li className="auth-layout__feature">
-                <span className="auth-layout__feature-icon">❤️</span>
-                <span className="auth-layout__feature-text">Compartilhe suas criações</span>
-              </li>
-              <li className="auth-layout__feature">
-                <span className="auth-layout__feature-icon">📱</span>
-                <span className="auth-layout__feature-text">Acesse de qualquer lugar</span>
-              </li>
+              <li>🍳 Milhares de receitas</li>
+              <li>👨‍🍳 Chefs profissionais</li>
+              <li>❤️ Compartilhe suas criações</li>
+              <li>📱 Acesse de qualquer lugar</li>
             </ul>
           </div>
 
-          <div className="auth-layout__sidebar-footer">
-            <p className="auth-layout__footer-text">
-              Já possui uma conta?{" "}
-              <Link to="/login" className="auth-layout__footer-link">
-                Faça login
-              </Link>
-            </p>
-          </div>
+          {/* 🔥 LOGIN HINT (condicional) */}
+          {showLoginHint && (
+            <div className="auth-layout__sidebar-footer">
+              <p className="auth-layout__footer-text">
+                {loginHintText}{" "}
+                <Link to={loginHintTo} className="auth-layout__footer-link">
+                  {loginHintLinkText}
+                </Link>
+              </p>
+            </div>
+          )}
         </div>
 
-        {/* Main content */}
+        {/* Main */}
         <div className="auth-layout__main">
           {showBackLink && (
             <Link to={backLinkTo} className="auth-layout__back-link">
@@ -88,21 +83,20 @@ const AuthLayout = ({
               {subtitle && <p className="auth-layout__subtitle">{subtitle}</p>}
             </div>
 
+
             {children}
           </div>
 
-          <div className="auth-layout__footer">
-            <p className="auth-layout__footer-text">
-              Ao continuar, você concorda com nossos{" "}
-              <Link to="/termos" className="auth-layout__footer-link">
-                Termos de Serviço
-              </Link>{" "}
-              e{" "}
-              <Link to="/privacidade" className="auth-layout__footer-link">
-                Política de Privacidade
-              </Link>
-            </p>
-          </div>
+          {/* 🔥 TERMOS (condicional) */}
+          {showLegal && (
+            <div className="auth-layout__footer">
+              <p className="auth-layout__footer-text">
+                Ao continuar, você concorda com nossos{" "}
+                <Link to="/termos">Termos de Serviço</Link> e{" "}
+                <Link to="/privacidade">Política de Privacidade</Link>
+              </p>
+            </div>
+          )}
         </div>
       </div>
     </div>
@@ -117,6 +111,12 @@ AuthLayout.propTypes = {
   showBackLink: PropTypes.bool,
   backLinkText: PropTypes.string,
   backLinkTo: PropTypes.string,
+
+  showLegal: PropTypes.bool,
+  showLoginHint: PropTypes.bool,
+  loginHintText: PropTypes.string,
+  loginHintLinkText: PropTypes.string,
+  loginHintTo: PropTypes.string,
 };
 
 export default AuthLayout;

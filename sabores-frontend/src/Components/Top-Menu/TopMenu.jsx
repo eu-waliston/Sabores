@@ -4,6 +4,7 @@ import SearchBar from "./SearchBar";
 import UserMenu from "./UserMenu";
 import Navigation from "./Navigation";
 // import Notifications from "./Notifications";
+import { useNavigate } from 'react-router-dom';
 import "./TopMenu.scss";
 
 const TopMenu = () => {
@@ -12,6 +13,9 @@ const TopMenu = () => {
   const [searchSuggestions, setSearchSuggestions] = useState([]);
   // Mock user - será substituído pelo contexto/auth
   const [user, setUser] = useState(null);
+  const navigation = useNavigate();
+
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -46,7 +50,7 @@ const TopMenu = () => {
 
   const handleSearch = (query, filter) => {
     console.log('Busca:', { query, filter });
-    
+
     // Simular sugestões da API
     const mockSuggestions = [
       "Bolo de chocolate",
@@ -55,14 +59,14 @@ const TopMenu = () => {
       "Sopa de legumes",
       "Massas italianas"
     ];
-    setSearchSuggestions(mockSuggestions.filter(s => 
+    setSearchSuggestions(mockSuggestions.filter(s =>
       s.toLowerCase().includes(query.toLowerCase())
     ));
   };
 
   const handleLogin = () => {
-    console.log('Redirecionar para login');
-    // navigation.navigate('/login');
+
+    navigation('/login');
   };
 
   const handleLogout = () => {
@@ -80,7 +84,7 @@ const TopMenu = () => {
   };
 
   return (
-    <header 
+    <header
       className={`top-menu ${isScrolled ? 'top-menu--scrolled' : ''} ${isMobile ? 'top-menu--mobile' : ''}`}
       role="banner"
     >
@@ -88,7 +92,7 @@ const TopMenu = () => {
 
         {/* Logo */}
         <div className="top-menu__logo">
-          <Logo 
+          <Logo
             variant={isScrolled ? "default" : "default"}
             size={isMobile ? "small" : "medium"}
             showText={!isMobile}
@@ -105,7 +109,7 @@ const TopMenu = () => {
 
         {/* Barra de busca */}
         <div className="top-menu__search">
-          <SearchBar 
+          <SearchBar
             onSearch={handleSearch}
             suggestions={searchSuggestions}
             showFilters={!isMobile}
@@ -133,7 +137,7 @@ const TopMenu = () => {
 
           {/* Menu hamburger para mobile */}
           {isMobile && (
-            <button 
+            <button
               className="top-menu__hamburger"
               aria-label="Abrir menu"
               onClick={() => console.log('Abrir menu mobile')}

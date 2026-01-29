@@ -47,7 +47,7 @@ const Register = () => {
 
   const onSubmit = async (data) => {
     setServerError(null);
-    
+
     // Verificar se as senhas coincidem
     if (data.password !== data.confirmPassword) {
       methods.setError("confirmPassword", {
@@ -76,7 +76,7 @@ const Register = () => {
     };
 
     const result = await registerUser(userData);
-    
+
     if (result.success) {
       // Navegação será feita pelo hook useAuth
     } else {
@@ -89,11 +89,11 @@ const Register = () => {
     const birthDate = new Date(dateString);
     let age = today.getFullYear() - birthDate.getFullYear();
     const monthDiff = today.getMonth() - birthDate.getMonth();
-    
+
     if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
       age--;
     }
-    
+
     return age;
   };
 
@@ -260,7 +260,7 @@ const Register = () => {
           {/* Step 3: Terms */}
           {step === 3 && (
             <div className="auth-form__step-content">
-              <div className="auth-form__terms">
+              {/* <div className="auth-form__terms">
                 <label className="auth-form__checkbox auth-form__checkbox--large">
                   <input
                     type="checkbox"
@@ -286,7 +286,7 @@ const Register = () => {
                     {methods.formState.errors.agreeTerms.message}
                   </p>
                 )}
-              </div>
+              </div> */}
 
               <div className="auth-form__divider">
                 <span className="auth-form__divider-text">ou cadastre-se com</span>

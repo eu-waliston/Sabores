@@ -13,7 +13,7 @@ const PasswordField = ({
 }) => {
   const [showPassword, setShowPassword] = useState(false);
   const [passwordStrength, setPasswordStrength] = useState(0);
-  
+
   const {
     register,
     watch,
@@ -26,13 +26,13 @@ const PasswordField = ({
   // Calcular força da senha
   const calculateStrength = (password) => {
     if (!password) return 0;
-    
+
     let strength = 0;
     if (password.length >= 8) strength += 25;
     if (/[A-Z]/.test(password)) strength += 25;
     if (/[0-9]/.test(password)) strength += 25;
     if (/[^A-Za-z0-9]/.test(password)) strength += 25;
-    
+
     return strength;
   };
 
@@ -64,13 +64,13 @@ const PasswordField = ({
         <label htmlFor={name} className="password-field__label">
           {label}
         </label>
-        {showStrength && passwordValue && (
+        {/* {showStrength && passwordValue && (
           <div className="password-field__strength">
             <span className="password-field__strength-label">
               {getStrengthLabel(passwordStrength)}
             </span>
             <div className="password-field__strength-bar">
-              <div 
+              <div
                 className="password-field__strength-fill"
                 style={{
                   width: `${passwordStrength}%`,
@@ -79,14 +79,14 @@ const PasswordField = ({
               />
             </div>
           </div>
-        )}
+        )} */}
       </div>
-      
+
       <div className={`password-field__container ${error ? 'password-field__container--error' : ''}`}>
         <div className="password-field__icon">
           <FaLock className="password-field__icon-svg" />
         </div>
-        
+
         <input
           id={name}
           type={showPassword ? "text" : "password"}
@@ -97,7 +97,7 @@ const PasswordField = ({
           aria-invalid={error ? "true" : "false"}
           aria-describedby={error ? `${name}-error` : undefined}
         />
-        
+
         <button
           type="button"
           className="password-field__toggle"
@@ -111,15 +111,15 @@ const PasswordField = ({
             <FaEye className="password-field__toggle-icon" />
           )}
         </button>
-        
+
         {error && (
           <div className="password-field__error-icon" aria-hidden="true">
             !
           </div>
         )}
       </div>
-      
-      {error ? (
+
+      {/* {error ? (
         <p id={`${name}-error`} className="password-field__error-message" role="alert">
           {error.message}
         </p>
@@ -141,7 +141,7 @@ const PasswordField = ({
             </li>
           </ul>
         </div>
-      )}
+      )} */}
     </div>
   );
 };

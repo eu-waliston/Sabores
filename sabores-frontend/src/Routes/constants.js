@@ -24,8 +24,8 @@ export const ROUTES = {
 
   // Autenticação
   LOGIN: '/login',
-  REGISTER: '/registrar',
-  RECOVERY: '/recuperar-senha',
+  REGISTER: '/register',
+  RECOVERY: '/recovery',
   RESET_PASSWORD: '/redefinir-senha/:token',
   VERIFY_EMAIL: '/verificar-email/:token?',
 
