@@ -85,6 +85,7 @@ const TopMenu = () => {
       role="banner"
     >
       <div className="top-menu__container">
+
         {/* Logo */}
         <div className="top-menu__logo">
           <Logo 
@@ -112,6 +113,14 @@ const TopMenu = () => {
           />
         </div>
 
+        {/* Menu do usuário */}
+        <UserMenu
+            user={user}
+            onLogin={handleLogin}
+            onLogout={handleLogout}
+            onCreateRecipe={handleCreateRecipe}
+        />
+
         {/* Ações do usuário */}
         <div className="top-menu__actions">
           {/* Notificações */}
@@ -121,14 +130,6 @@ const TopMenu = () => {
           {/*    count={notifications.length}*/}
           {/*  />*/}
           {/*)}*/}
-
-          {/* Menu do usuário */}
-          <UserMenu 
-            user={user}
-            onLogin={handleLogin}
-            onLogout={handleLogout}
-            onCreateRecipe={handleCreateRecipe}
-          />
 
           {/* Menu hamburger para mobile */}
           {isMobile && (

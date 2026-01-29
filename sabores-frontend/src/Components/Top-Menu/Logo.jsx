@@ -43,7 +43,7 @@ const Logo = ({
           width="60"
           height="60"
         />
-        <div className="logo__pulse"></div>
+
       </div>
       
       {showText && (

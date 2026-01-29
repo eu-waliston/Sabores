@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import {Link} from "react-router-dom";
 import {FaArrowDown, FaPlay, FaFire, FaUsers, FaAward} from "react-icons/fa";
 import "./HeroSection.scss";
+import foodImg from "./food-res.jpg";
 
 const HeroSection = () => {
     const [scrollPosition, setScrollPosition] = useState(0);
@@ -151,11 +152,11 @@ const HeroSection = () => {
                     </div>
                 </div>
 
-                 {/*Imagem destaque */}
+                {/*Imagem destaque */}
                 <div className="hero-section__image-container">
                     <div className="hero-section__image-wrapper">
                         <img
-                            src="./food-res.jpg"
+                            src={foodImg}
                             alt="Prato gourmet"
                             className="hero-section__image"
                             loading="eager"

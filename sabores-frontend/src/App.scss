@@ -2,10 +2,10 @@
 @use "Utilities/mixins";
 
 .app {
-  min-height: 100vh;
+  //min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: var(--color-background);
+  background-color: var(--color-background) !important;
   color: var(--color-text-primary);
   font-family: var(--font-beauty), serif;
   transition: background-color 0.3s ease, color 0.3s ease;
@@ -64,7 +64,7 @@
 }
 
 .container-wide {
-  max-width: 1600px;
+  max-width: 100vh;
   margin: 0 auto;
   padding: 0 var(--container-padding-md);
 

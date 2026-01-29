@@ -20,12 +20,12 @@ const FooterBottom = ({
       <div className="footer-bottom__content">
         <div className="footer-bottom__legal">
           <p className="footer-bottom__copyright">{copyright}</p>
-          
+
           <div className="footer-bottom__links">
             {legalLinks.map((link) => (
               <React.Fragment key={link.label}>
-                <a 
-                  href={link.href} 
+                <a
+                  href={link.href}
                   className="footer-bottom__link"
                   aria-label={link.label}
                 >

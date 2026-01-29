@@ -92,7 +92,7 @@ const MainLayout = () => {
           )}
         </div>
 
-        <Footer />
+        {/*<Footer />*/}
       </div>
     </>
   );

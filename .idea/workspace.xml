@@ -1,9 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0a452cd5-d59a-40e5-b8c8-eb77b166913c" name="Changes" comment="">
+    <list default="true" id="0a452cd5-d59a-40e5-b8c8-eb77b166913c" name="Changes" comment="update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sabores-frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/sabores-frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sabores-frontend/src/App.scss" beforeDir="false" afterPath="$PROJECT_DIR$/sabores-frontend/src/App.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sabores-frontend/src/Components/Footer/Footer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/sabores-frontend/src/Components/Footer/Footer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sabores-frontend/src/Components/Footer/Footer.scss" beforeDir="false" afterPath="$PROJECT_DIR$/sabores-frontend/src/Components/Footer/Footer.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sabores-frontend/src/Components/Footer/FooterBottom.scss" beforeDir="false" afterPath="$PROJECT_DIR$/sabores-frontend/src/Components/Footer/FooterBottom.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sabores-frontend/src/Components/Footer/FooterLinks.scss" beforeDir="false" afterPath="$PROJECT_DIR$/sabores-frontend/src/Components/Footer/FooterLinks.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sabores-frontend/src/Components/Footer/Newsletter.scss" beforeDir="false" afterPath="$PROJECT_DIR$/sabores-frontend/src/Components/Footer/Newsletter.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sabores-frontend/src/Components/Left-Menu/LeftMenu.scss" beforeDir="false" afterPath="$PROJECT_DIR$/sabores-frontend/src/Components/Left-Menu/LeftMenu.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sabores-frontend/src/Components/Left-Menu/MenuToggle.scss" beforeDir="false" afterPath="$PROJECT_DIR$/sabores-frontend/src/Components/Left-Menu/MenuToggle.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sabores-frontend/src/Components/Top-Menu/Logo.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/sabores-frontend/src/Components/Top-Menu/Logo.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sabores-frontend/src/Components/Top-Menu/Logo.scss" beforeDir="false" afterPath="$PROJECT_DIR$/sabores-frontend/src/Components/Top-Menu/Logo.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sabores-frontend/src/Components/Top-Menu/SearchBar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/sabores-frontend/src/Components/Top-Menu/SearchBar.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sabores-frontend/src/Components/Top-Menu/TopMenu.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/sabores-frontend/src/Components/Top-Menu/TopMenu.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sabores-frontend/src/Components/Top-Menu/TopMenu.scss" beforeDir="false" afterPath="$PROJECT_DIR$/sabores-frontend/src/Components/Top-Menu/TopMenu.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sabores-frontend/src/Components/Top-Menu/UserMenu.scss" beforeDir="false" afterPath="$PROJECT_DIR$/sabores-frontend/src/Components/Top-Menu/UserMenu.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sabores-frontend/src/MainLayout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/sabores-frontend/src/MainLayout.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sabores-frontend/src/MainLayout.scss" beforeDir="false" afterPath="$PROJECT_DIR$/sabores-frontend/src/MainLayout.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sabores-frontend/src/Pages/HeroSection.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/sabores-frontend/src/Pages/HeroSection.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sabores-frontend/src/Pages/HeroSection.scss" beforeDir="false" afterPath="$PROJECT_DIR$/sabores-frontend/src/Pages/HeroSection.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,6 +86,9 @@
       </scripts>
       <node-interpreter value="project" />
       <envs />
+      <EXTENSION ID="com.intellij.javascript.debugger.execution.StartBrowserRunConfigurationExtension">
+        <browser with-js-debugger="true" />
+      </EXTENSION>
       <method v="2" />
     </configuration>
     <recent_temporary>
@@ -92,11 +112,24 @@
       <option name="presentableId" value="Default" />
       <updated>1769546328933</updated>
       <workItem from="1769546334558" duration="3399000" />
-      <workItem from="1769628930154" duration="7076000" />
+      <workItem from="1769628930154" duration="16746000" />
     </task>
+    <task id="LOCAL-00001" summary="update">
+      <option name="closed" value="true" />
+      <created>1769636724355</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1769636724356</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
 </project>

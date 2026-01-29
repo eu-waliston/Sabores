@@ -3,6 +3,7 @@ import SocialIcons from "./SocialIcons";
 import Newsletter from "./Newsletter";
 import FooterLinks from "./FooterLinks";
 import FooterBottom from "./FooterBottom";
+
 import "./Footer.scss";
 
 const Footer = () => {

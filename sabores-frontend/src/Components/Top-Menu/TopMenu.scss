@@ -9,11 +9,12 @@
   background: $text-color-1;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
-  padding: 0 40px;
+  padding: 10px 40px;
+
 
   &--scrolled {
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-    padding: 0 40px;
+    padding: 15px 40px;
     
     .top-menu__container {
       height: 70px;
@@ -32,7 +33,7 @@
     display: grid;
     grid-template-columns: auto 1fr auto;
     align-items: center;
-    gap: 40px;
+    gap: 20px;
     height: 90px;
     transition: height 0.4s ease;
     max-width: 1600px;
