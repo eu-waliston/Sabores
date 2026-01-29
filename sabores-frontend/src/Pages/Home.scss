@@ -4,6 +4,7 @@
 .home {
   width: 100%;
   overflow-x: hidden;
+  margin-left: -50px;
 
   &__feed-section {
     padding: 100px 40px;
@@ -184,6 +185,8 @@
 // Responsive
 @media (max-width: 768px) {
   .home {
+    margin-left: 0;
+
     &__feed-section {
       padding: 60px 20px;
     }
@@ -200,6 +203,9 @@
 
 @media (max-width: 480px) {
   .home {
+
+
+
     &__feed-title {
       font-size: 1.8rem;
     }
