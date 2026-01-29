@@ -26,11 +26,11 @@ class Database {
       mongoose.set("debug", process.env.NODE_ENV === "development"); // Debug apenas em desenvolvimento
 
       this._setupEventListeners();
-      
+
       console.log("✅ MongoDB connected successfully!");
       console.log(`📊 Database: ${mongoose.connection.name}`);
       console.log(`👤 Host: ${mongoose.connection.host}`);
-      
+
     } catch (error) {
       console.error("❌ MongoDB connection error:", error);
       // Implementar lógica de retry ou graceful shutdown
@@ -86,3 +86,6 @@ class Database {
     return states[mongoose.connection.readyState];
   }
 }
+
+
+module.exports = Database;

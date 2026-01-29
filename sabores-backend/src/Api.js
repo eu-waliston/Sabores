@@ -13,10 +13,11 @@ const fs = require("fs");
 require("dotenv").config();
 
 // Database connection
-const { connectDB, Database } = require("./config/database");
+// const { connectDB, Database } = require("../config/DB");
+const Database = require("../config/DB");
 
 // Import routes
-const routes = require("./routes");
+const routes = require("./Rotes/root.rotes");
 
 // Initialize Express app
 const app = express();
@@ -164,7 +165,7 @@ app.get("/api/docs", (req, res) => {
 // API Status endpoint
 app.get("/api/status", (req, res) => {
   const dbStatus = Database.getConnectionState();
-  
+
   res.status(200).json({
     success: true,
     message: "API Status",
@@ -294,12 +295,12 @@ process.on("unhandledRejection", (reason, promise) => {
 // Graceful shutdown handlers
 const gracefulShutdown = async (signal) => {
   console.log(`\n🚨 ${signal} received. Starting graceful shutdown...`);
-  
+
   try {
     // Close database connection
     await Database.disconnect();
     console.log("✅ Database connection closed");
-    
+
     // Close server
     server.close(() => {
       console.log("✅ HTTP server closed");
@@ -312,7 +313,7 @@ const gracefulShutdown = async (signal) => {
       console.error("⏰ Could not close connections in time, forcefully shutting down");
       process.exit(1);
     }, 10000);
-    
+
   } catch (error) {
     console.error("❌ Error during shutdown:", error);
     process.exit(1);
