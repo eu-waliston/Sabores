@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import HeroSection from "./HeroSection";
-import StatsSection from "./StatsSection";
+import StatsSection from "../StatsSection/StatsSection";
 import FeaturesSection from "./FeaturesSection";
 import CTA from "./CTA";
-import Feed from "../Components/Feed/Feed";
-import Footer from "../Components/Footer/Footer";
+import Feed from "../../Components/Feed/Feed";
+import Footer from "../../Components/Footer/Footer";
 import "./Home.scss";
 
 const Home = () => {
@@ -30,14 +30,14 @@ const Home = () => {
     <>
       <Helmet>
         <title>Sabores - Descubra, compartilhe e saboreie as melhores receitas</title>
-        <meta 
-          name="description" 
-          content="Comunidade de food lovers compartilhando milhares de receitas. 
-          Encontre receitas por ingredientes, tempo de preparo, dificuldade e muito mais." 
+        <meta
+          name="description"
+          content="Comunidade de food lovers compartilhando milhares de receitas.
+          Encontre receitas por ingredientes, tempo de preparo, dificuldade e muito mais."
         />
-        <meta 
-          name="keywords" 
-          content="receitas, culinária, comida, chef, cozinha, gastronomia, pratos, sobremesas" 
+        <meta
+          name="keywords"
+          content="receitas, culinária, comida, chef, cozinha, gastronomia, pratos, sobremesas"
         />
         <meta property="og:title" content="Sabores - Receitas Online" />
         <meta property="og:description" content="Sua jornada culinária começa aqui" />

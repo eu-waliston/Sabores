@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import TopMenu from "../Components/Top-Menu/TopMenu";
-import LeftMenu from "../Components/Left-Menu/LeftMenu";
+import TopMenu from "../../Components/Top-Menu/TopMenu";
+import LeftMenu from "../../Components/Left-Menu/LeftMenu";
 import Home from "./Home";
 import "./HomeWrapper.scss";
 
@@ -46,7 +46,7 @@ const HomeWrapper = () => {
 
       {/* Left Menu Overlay (mobile) */}
       {isMobile && showLeftMenu && (
-        <div 
+        <div
           className="home-wrapper__overlay"
           onClick={() => setShowLeftMenu(false)}
         />
@@ -54,7 +54,7 @@ const HomeWrapper = () => {
 
       {/* Left Menu Content (mobile) */}
       {isMobile && (
-        <div 
+        <div
           className={`home-wrapper__left-menu-mobile ${
             showLeftMenu ? "home-wrapper__left-menu-mobile--open" : ""
           }`}
@@ -64,7 +64,7 @@ const HomeWrapper = () => {
       )}
 
       {/* Main Content */}
-      <div 
+      <div
         className={`home-wrapper__content ${
           !isMobile ? "home-wrapper__content--with-left-menu" : ""
         }`}
