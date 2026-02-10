@@ -1,11 +1,12 @@
 @import "../../Utilities/variables";
+
 .user-menu {
   position: fixed;
   right: 8px;
 
 
   @media (max-width: 576px) {
-    top: 10px;
+    top: 17px;
   }
 
 
@@ -38,6 +39,12 @@
       outline: 2px solid $website-theme;
       outline-offset: 2px;
     }
+
+    @media (max-width: 576px) {
+      top: 1px;
+    }
+
+
   }
 
   &__login-icon {
@@ -51,7 +58,7 @@
   }
 
   &__toggle {
-        position: relative;
+    position: relative;
     top: -9px;
     display: flex;
     align-items: center;
@@ -77,6 +84,7 @@
       background: rgba($website-theme, 0.1);
       border-color: rgba($website-theme, 0.3);
     }
+
   }
 
   &__avatar {
@@ -338,6 +346,7 @@
     opacity: 0;
     transform: translateY(-10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);

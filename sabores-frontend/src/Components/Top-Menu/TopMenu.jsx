@@ -3,6 +3,7 @@ import Logo from "./Logo";
 import SearchBar from "./SearchBar";
 import UserMenu from "./UserMenu";
 import Navigation from "./Navigation";
+import LeftMenu from "../Left-Menu/LeftMenu"
 // import Notifications from "./Notifications";
 import { useNavigate } from 'react-router-dom';
 import "./TopMenu.scss";
@@ -14,6 +15,7 @@ const TopMenu = () => {
   // Mock user - será substituído pelo contexto/auth
   const [user, setUser] = useState(null);
   const navigation = useNavigate();
+  const [menuAberto, setMenuAberto] = useState(false);
 
 
 
@@ -83,6 +85,10 @@ const TopMenu = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const toggleMenu = () => {
+    setMenuAberto(prev => !prev);
+  }
+
   return (
     <header
       className={`top-menu ${isScrolled ? 'top-menu--scrolled' : ''} ${isMobile ? 'top-menu--mobile' : ''}`}
@@ -119,10 +125,10 @@ const TopMenu = () => {
 
         {/* Menu do usuário */}
         <UserMenu
-            user={user}
-            onLogin={handleLogin}
-            onLogout={handleLogout}
-            onCreateRecipe={handleCreateRecipe}
+          user={user}
+          onLogin={handleLogin}
+          onLogout={handleLogout}
+          onCreateRecipe={handleCreateRecipe}
         />
 
         {/* Ações do usuário */}
@@ -138,15 +144,16 @@ const TopMenu = () => {
           {/* Menu hamburger para mobile */}
           {isMobile && (
             <button
-              className="top-menu__hamburger"
+              className="top-menu__hamburger fa-solid fa-bars"
               aria-label="Abrir menu"
-              onClick={() => console.log('Abrir menu mobile')}
+              onClick={toggleMenu}
             >
-              <span className="top-menu__hamburger-line"></span>
-              <span className="top-menu__hamburger-line"></span>
-              <span className="top-menu__hamburger-line"></span>
+
             </button>
+
+
           )}
+          <LeftMenu aberto={menuAberto} toggleMenu={toggleMenu} />
         </div>
       </div>
 

@@ -11,11 +11,15 @@
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
   padding: 10px 40px;
 
+  .fa-bars {
+    font-size: 1.6rem;
+    color: $website-theme;
+  }
 
   &--scrolled {
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
     padding: 15px 40px;
-    
+
     .top-menu__container {
       height: 70px;
     }
@@ -23,7 +27,7 @@
 
   &--mobile {
     padding: 0 20px;
-    
+
     &.top-menu--scrolled {
       padding: 0 20px;
     }
@@ -71,7 +75,7 @@
 
     @media (max-width: 768px) {
       display: none;
-      
+
       &.top-menu__search--mobile-visible {
         display: block;
         position: absolute;
@@ -146,7 +150,7 @@
 // Search toggle button for mobile
 .search-toggle {
   display: none;
-  
+
   @media (max-width: 768px) {
     display: flex;
     align-items: center;
@@ -169,6 +173,7 @@
       outline: 2px solid $website-theme;
       outline-offset: 2px;
     }
+
   }
 }
 
