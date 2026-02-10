@@ -15,13 +15,13 @@ const LeftMenu = () => {
 
   return (
     <div className={`left-menu ${isCollapsed ? 'left-menu--collapsed' : ''}`}>
-      <MenuToggle 
+      <MenuToggle
         isCollapsed={isCollapsed}
         onClick={toggleMenu}
         position="fixed"
       />
-      
-      <nav 
+
+      <nav
         className="left-menu__nav"
         aria-label="Menu de categorias"
       >
@@ -30,7 +30,7 @@ const LeftMenu = () => {
             <h2 className="left-menu__title">Categorias</h2>
           )}
         </div>
-        
+
         <div className="left-menu__items">
           {categories.map((category) => (
             <MenuItem
@@ -45,7 +45,7 @@ const LeftMenu = () => {
             />
           ))}
         </div>
-        
+
         {!isCollapsed && (
           <div className="left-menu__footer">
             <div className="left-menu__stats">
@@ -56,8 +56,8 @@ const LeftMenu = () => {
                 {categories.length} categorias
               </span>
             </div>
-            
-            <button 
+
+            <button
               className="left-menu__filter-button"
               onClick={() => console.log('Abrir filtros')}
               aria-label="Filtrar receitas"

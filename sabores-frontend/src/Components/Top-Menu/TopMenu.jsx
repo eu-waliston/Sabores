@@ -86,7 +86,8 @@ const TopMenu = () => {
   };
 
   const toggleMenu = () => {
-    setMenuAberto(prev => !prev);
+    console.log("menu lateral");
+
   }
 
   return (
@@ -153,7 +154,6 @@ const TopMenu = () => {
 
 
           )}
-          <LeftMenu aberto={menuAberto} toggleMenu={toggleMenu} />
         </div>
       </div>
 
