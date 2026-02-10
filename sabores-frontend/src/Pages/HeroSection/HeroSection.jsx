@@ -1,6 +1,6 @@
-import React, {useState, useEffect} from "react";
-import {Link} from "react-router-dom";
-import {FaArrowDown, FaPlay, FaFire, FaUsers, FaAward} from "react-icons/fa";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { FaArrowDown, FaPlay, FaFire, FaUsers, FaAward } from "react-icons/fa";
 import "./HeroSection.scss";
 import foodImg from "./food-res.jpg";
 
@@ -40,7 +40,7 @@ const HeroSection = () => {
         e.preventDefault();
         const feedSection = document.getElementById("feed");
         if (feedSection) {
-            feedSection.scrollIntoView({behavior: "smooth"});
+            feedSection.scrollIntoView({ behavior: "smooth" });
         }
     };
 
@@ -69,8 +69,8 @@ const HeroSection = () => {
                             <h1 className="hero-section__title">
                                 <span className="hero-section__title-main">Sabores</span>
                                 <span className="hero-section__title-sub">
-                  Sua jornada culinária começa aqui
-                </span>
+                                    Sua jornada culinária começa aqui
+                                </span>
                             </h1>
 
                             <p className="hero-section__description">
@@ -84,36 +84,36 @@ const HeroSection = () => {
                     <div className="hero-section__stats">
                         <div className="hero-section__stat">
                             <div className="hero-section__stat-icon">
-                                <FaFire/>
+                                <FaFire />
                             </div>
                             <div className="hero-section__stat-content">
-                <span className="hero-section__stat-number">
-                  {stats.recipes.toLocaleString()}+
-                </span>
+                                <span className="hero-section__stat-number">
+                                    {stats.recipes.toLocaleString()}+
+                                </span>
                                 <span className="hero-section__stat-label">Receitas</span>
                             </div>
                         </div>
 
                         <div className="hero-section__stat">
                             <div className="hero-section__stat-icon">
-                                <FaUsers/>
+                                <FaUsers />
                             </div>
                             <div className="hero-section__stat-content">
-                <span className="hero-section__stat-number">
-                  {stats.users.toLocaleString()}+
-                </span>
+                                <span className="hero-section__stat-number">
+                                    {stats.users.toLocaleString()}+
+                                </span>
                                 <span className="hero-section__stat-label">Food Lovers</span>
                             </div>
                         </div>
 
                         <div className="hero-section__stat">
                             <div className="hero-section__stat-icon">
-                                <FaAward/>
+                                <FaAward />
                             </div>
                             <div className="hero-section__stat-content">
-                <span className="hero-section__stat-number">
-                  {stats.ratings}
-                </span>
+                                <span className="hero-section__stat-number">
+                                    {stats.ratings}
+                                </span>
                                 <span className="hero-section__stat-label">Avaliação Média</span>
                             </div>
                         </div>
@@ -126,7 +126,7 @@ const HeroSection = () => {
                             className="hero-section__button hero-section__button--primary"
                         >
                             <span className="hero-section__button-text">Explorar Receitas</span>
-                            <FaPlay className="hero-section__button-icon"/>
+                            <FaPlay className="hero-section__button-icon" />
                         </Link>
 
                         <Link
@@ -171,13 +171,12 @@ const HeroSection = () => {
 
             {/* Scroll indicator */}
             <button
-                className={`hero-section__scroll-indicator ${
-                    scrollPosition > 100 ? "hero-section__scroll-indicator--hidden" : ""
-                }`}
+                className={`hero-section__scroll-indicator ${scrollPosition > 100 ? "hero-section__scroll-indicator--hidden" : ""
+                    }`}
                 onClick={scrollToFeed}
                 aria-label="Role para descobrir mais"
             >
-                <FaArrowDown className="hero-section__scroll-icon"/>
+                <FaArrowDown className="hero-section__scroll-icon" />
                 <span className="hero-section__scroll-text">Descobrir</span>
             </button>
         </section>
