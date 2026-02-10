@@ -3,7 +3,7 @@ import Logo from "./Logo";
 import SearchBar from "./SearchBar";
 import UserMenu from "./UserMenu";
 import Navigation from "./Navigation";
-import LeftMenu from "../Left-Menu/LeftMenu"
+import MenuToggle from "../Left-Menu/MenuToggle"
 // import Notifications from "./Notifications";
 import { useNavigate } from 'react-router-dom';
 import "./TopMenu.scss";
@@ -15,9 +15,8 @@ const TopMenu = () => {
   // Mock user - será substituído pelo contexto/auth
   const [user, setUser] = useState(null);
   const navigation = useNavigate();
-  const [menuAberto, setMenuAberto] = useState(false);
 
-
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -86,9 +85,12 @@ const TopMenu = () => {
   };
 
   const toggleMenu = () => {
-    console.log("menu lateral");
+    setIsMenuOpen(prev => !prev);
+  };
 
-  }
+  const closeMenu = () => {
+  setIsMenuOpen(false);
+};
 
   return (
     <header
@@ -142,25 +144,28 @@ const TopMenu = () => {
           {/*  />*/}
           {/*)}*/}
 
-          {/* Menu hamburger para mobile */}
+          {/* Botão de menu para mobile (hamburger) */}
           {isMobile && (
             <button
-              className="top-menu__hamburger fa-solid fa-bars"
-              aria-label="Abrir menu"
+              className="mobile-menu-toggle"
               onClick={toggleMenu}
+              aria-label={isMenuOpen ? "Fechar menu" : "Abrir menu"}
+              aria-expanded={isMenuOpen}
             >
-
+              <span className="mobile-menu-toggle__icon">
+                {isMenuOpen ? '✕' : '☰'}
+              </span>
             </button>
-
-
           )}
         </div>
       </div>
 
-      {/* Navegação mobile (se necessário) */}
       {isMobile && (
-        <div className="top-menu__mobile-nav">
-          <Navigation variant="mobile" />
+        <div
+          className={`top-menu__mobile-nav ${isMenuOpen ? 'top-menu__mobile-nav--open' : ''
+            }`}
+        >
+          <Navigation variant="mobile" onItemClick={closeMenu}/>
         </div>
       )}
     </header>

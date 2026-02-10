@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Link, useLocation } from "react-router-dom";
-import { 
-  FaHome, 
-  FaCompass, 
-  FaFire, 
+import {
+  FaHome,
+  FaCompass,
+  FaFire,
   FaPlusCircle,
   FaBook,
   FaQuestionCircle
 } from "react-icons/fa";
 import "./Navigation.scss";
 
-const Navigation = ({ 
+const Navigation = ({
   items = [
     { path: "/", label: "Home", icon: FaHome },
     { path: "/descobrir", label: "Descobrir", icon: FaCompass },
@@ -20,7 +20,8 @@ const Navigation = ({
     { path: "/blog", label: "Blog", icon: FaBook },
     { path: "/ajuda", label: "Ajuda", icon: FaQuestionCircle },
   ],
-  variant = "desktop"
+  variant = "desktop",
+  onItemClick
 }) => {
   const location = useLocation();
   const [hoveredItem, setHoveredItem] = useState(null);
@@ -35,7 +36,7 @@ const Navigation = ({
   const isMobile = variant === "mobile";
 
   return (
-    <nav 
+    <nav
       className={`navigation navigation--${variant}`}
       aria-label="Navegação principal"
     >
@@ -43,9 +44,9 @@ const Navigation = ({
         {items.map((item) => {
           const Icon = item.icon;
           const active = isActive(item.path);
-          
+
           return (
-            <li 
+            <li
               key={item.path}
               className="navigation__item"
               onMouseEnter={() => !isMobile && setHoveredItem(item.path)}
@@ -53,6 +54,7 @@ const Navigation = ({
             >
               <Link
                 to={item.path}
+                onClick={isMobile ? onItemClick : undefined}
                 className={`navigation__link ${active ? 'navigation__link--active' : ''}`}
                 aria-current={active ? "page" : undefined}
               >
@@ -62,9 +64,9 @@ const Navigation = ({
                     <span className="navigation__badge">{item.badge}</span>
                   )}
                 </div>
-                
+
                 <span className="navigation__label">{item.label}</span>
-                
+
                 {!isMobile && hoveredItem === item.path && !active && (
                   <div className="navigation__hover-indicator"></div>
                 )}

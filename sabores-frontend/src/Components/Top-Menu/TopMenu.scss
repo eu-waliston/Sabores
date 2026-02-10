@@ -11,6 +11,8 @@
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
   padding: 10px 40px;
 
+
+
   .fa-bars {
     font-size: 1.6rem;
     color: $website-theme;
@@ -182,6 +184,7 @@
     opacity: 0;
     transform: translateY(-20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -193,6 +196,15 @@
   .top-menu {
     &__container {
       grid-template-columns: auto 1fr auto;
+    }
+
+    .mobile-menu-toggle {
+      left: 17px;
+      position: fixed;
+      top: 16px;
+
+      z-index: 1100;
+
     }
 
     &__search {
@@ -214,6 +226,10 @@
         opacity: 1;
         visibility: visible;
       }
+    }
+
+    &__logo {
+      visibility: hidden;
     }
   }
 }

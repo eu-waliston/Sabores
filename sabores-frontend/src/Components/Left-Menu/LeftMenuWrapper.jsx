@@ -31,7 +31,7 @@ const LeftMenuWrapper = ({ children }) => {
     <>
       {/* Overlay para mobile */}
       {isMobile && isMenuOpen && (
-        <div 
+        <div
           className="left-menu-overlay left-menu-overlay--visible"
           onClick={closeMenu}
           aria-hidden="true"
@@ -40,17 +40,17 @@ const LeftMenuWrapper = ({ children }) => {
 
       {/* Menu modificado para mobile */}
       <div className={`left-menu-wrapper ${isMobile ? 'left-menu-wrapper--mobile' : ''}`}>
-        <div 
+        <div
           className={`left-menu-container ${isMobile && isMenuOpen ? 'left-menu-container--open' : ''}`}
         >
-          <LeftMenu 
+          <LeftMenu
             onToggle={isMobile ? toggleMenu : undefined}
             isMobile={isMobile}
           />
         </div>
 
         {/* Conteúdo principal com padding ajustado */}
-        <div 
+        <div
           className="left-menu-content"
           style={{
             paddingLeft: isMobile ? 0 : '320px',
@@ -63,7 +63,7 @@ const LeftMenuWrapper = ({ children }) => {
 
       {/* Botão de menu para mobile (hamburger) */}
       {isMobile && (
-        <button 
+        <button
           className="mobile-menu-toggle"
           onClick={toggleMenu}
           aria-label={isMenuOpen ? "Fechar menu" : "Abrir menu"}
